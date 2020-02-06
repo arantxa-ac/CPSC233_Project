@@ -1,2 +1,2 @@
-# CPSC233
+# CPSC233 - T08G04
 Project
