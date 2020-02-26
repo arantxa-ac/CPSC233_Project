@@ -1,7 +1,7 @@
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
-public class Demo1Game {
+public class Game {
 	//First import needed objects
 	Player runner = new Player();	
 	
@@ -15,26 +15,28 @@ public class Demo1Game {
 		
 		// it runs until the player doesnt jump when the index of obstacles aren't 0
 		do {
+			//Print out
 			for(int i =0; i <= textDemo.size(); i++)
 				System.out.print(textDemo.get(i));
-			//remove the first bit of land/the screen
+			
+			//Remove the character closest to player and replace it with a new generated one at the end
 			textDemo.remove(1);
-			//add one at the end so the screen is constantly running
 			textDemo.add(obstruction.getNewObstacles());
 			
+			//Print out for first demo, delete later
 			if(runner.getJumpInput())
 				System.out.println("Player jumped!");
 			
 			System.out.println();
-		}while();
+		}while(textDemo.get(1) != "_" && !runner.getJumpInput());
 		
 		
 		System.out.println("Hit an obstacle!");
 		System.out.println("Game Over");
-		System.out.println("Score: " + playerScore.getCurrentScore);
 	}
 	
 	public static void main(String[] args) {
+		//Start game with space bar and up arrow 
 		if(runner.getKeyInput().getKeyCode() == 32 || runner.getKeyInput.getKeyCode() == 38) {
 			runGame(runner);
 			System.out.println("Starting Player Two in:");
