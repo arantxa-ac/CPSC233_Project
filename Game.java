@@ -1,5 +1,3 @@
-package codes;
-
 import java.awt.Rectangle;
 //The Main class of the project that calls on all other classes and actually runs the main game
 public class Game {
