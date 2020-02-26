@@ -1,16 +1,15 @@
+package codes;
+
 import java.awt.Rectangle;
 //The Main class of the project that calls on all other classes and actually runs the main game
 public class Game {
 	//First import needed objects
-	public Player playerOne = new Player();
-	public Player playerTwo = new Player();
-	
-	public Score playerScore = new Score();
+	 static Player runner = new Player();	
+	 static Score playerScore = new Score();
 	
 	//TODO: Need to determine the optimal hitbox (should be measured w/ pixels?)
 	public final int hitboxLength = 0;
 	public final int hitboxWidth = 0;
-	//TODO: plug in four variables later - x,y, (the coordinates of the upper left corner), width, height (of hitbox)
 	
 	//determines if the player hits an obstacle -> collision detection using the java Rectangle library 
 	public boolean collision(int playerX, int playerY, int obstacleX, int obstacleY) {
@@ -50,23 +49,16 @@ public class Game {
 	}
 	
 	public static void main(String[] args) {
-		//Start only when the user starts inputting right keys (up, down, space?)
-		runGame(playerOne);
-		System.out.println("Starting Player Two in:");
-		System.out.println("3...");
-		System.out.println("2...");
-		System.out.println("1...");
-		runGame(playerTwo);
-		
-		//First player's score is higher than the second
-		// TODO: Score method change --> make more efficient later
-		if(playerScore.getPlayerOneScore > playerScore.getPlayerTwoScore)
-			System.out.println("Player one won with a score of: " + playerScore.getPlayerOneScore);
-		//Second player's score is higher
-		else if(playerScore.getPlayerOneScore < playerScore.getPlayerTwoScore)
-			System.out.println("Player two won with a score of: " + playerScore.getPlayerTwoScore);
-		//Both got the same score 
-		else
-			System.out.println("Its a tie with the score: " + playerScore.getPlayerOneScore);
+		if(runner.getKeyInput().getKeyCode() == 32 || runner.getKeyInput.getKeyCode() == 38) {
+			runGame(runner);
+			System.out.println("Starting Player Two in:");
+			System.out.println("3...");
+			System.out.println("2...");
+			System.out.println("1...");
+			runGame(runner);
+			
+			int highestScore = playerScore.getHighestScore();
+			playerScore.declareWinner(highestScore);
+		}
 	}
 }
