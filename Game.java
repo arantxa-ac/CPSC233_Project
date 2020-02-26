@@ -28,7 +28,7 @@ public class Game {
 				System.out.println("Player jumped!");
 			
 			System.out.println();
-		}while(textDemo.get(1) != "_" && !runner.getJumpInput());
+		}while((textDemo.get(1) != "_" && !runner.getJumpInput()) || runner.getKeyInput() == 8);
 		
 		
 		System.out.println("Hit an obstacle!");
