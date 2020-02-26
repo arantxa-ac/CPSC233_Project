@@ -1,35 +1,34 @@
 import java.awt.event.KeyEvent;
-import java.util.Scanner;
 
 public class Player {
 	private int X;
 	private int Y;
 	private KeyEvent Input;
 	
-	public boolean getJumpInput()
+	public boolean getJumpInput(KeyEvent e)
 	{
-		if (getInput().getKeyCode() == 38)
+		if (e.getKeyCode() == 38 || e.getKeyCode() == 32)
 			return true;
 		else
 			return false;
 	}
 	
-	public void duck()
+	public String duck()
 	{
-		// Will need to do duck mechanics -- what does this look like for the demo?
+		return "Duck";
 	}
 
-	public boolean getDuckInput()
+	public boolean getDuckInput(KeyEvent e)
 	{
-		if (getInput().getKeyCode() == 38)
+		if (e.getKeyCode() == 38)
 			return true;
 		else
 			return false;
 	}
 	
-	public void jump()
+	public String jump()
 	{
-		// Will need to do jump mechanics -- what does this look like for the demo?
+		return "Jump";
 	}
 
 	public int getX() {
