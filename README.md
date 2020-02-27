@@ -15,15 +15,3 @@ In order to play the game:
 3) In order to load the next frame type 'run'
 4) if you hit an obstacle then the first player's game will be over and the second player's run will start.
 5) The instructions for the second player are the same from 1-3.
-```bash
-javac Game.java
-```
-```bash
-javac Player.java
-```
-```bash
-javac Obstacles.java
-```
-```bash
-java Game
-```
