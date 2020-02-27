@@ -7,10 +7,15 @@ public class Game{
 	static Scanner userInput = new Scanner(System.in);
 	
 	public static void runGame(Player runner) {
+		//Store characters for each "frame" in an ArrayList
 		ArrayList<String> textDemo = new ArrayList<String>(10);
+		//p stands for player
 		textDemo.add(0, "p");
 		String nextLine = "run";
 		String jump = "";
+		
+		System.out.println("You, the player, are 'p'. Jump over the cacti '|'!");
+		System.out.println();
 		
 		//Generate the initial frame first
 		for(int i = 1; i < 10;i++)
@@ -60,7 +65,8 @@ public class Game{
 			System.out.println("Type 'run' to run new frame/change");
 			nextLine = userInput.next();
 			System.out.println(nextLine);
-			
+		//"run" acts as a key for the user to stop playing at any time
+		//making sure "p" is at index 0 is the text-based way of determining collision detection
 		}while((nextLine.equals("run")) && textDemo.get(0) == "p");
 		
 		//If the player hit an obstacle. This will not appear if the player chooses not to run the next frame
@@ -71,11 +77,14 @@ public class Game{
 	}
 	
 	public static void main(String[] args) {
+		//Prompt the user to start to make the game start
 		System.out.println("Type START to begin: ");
 		String begin = userInput.next();
 		runner.setInput(begin);
 		if(runner.getInput().equals("START") ) {
 			runGame(runner);
+			System.out.println();
+			//Run the second player
 			System.out.println("Starting Player Two in:");
 			System.out.println("3...");
 			System.out.println("2...");
