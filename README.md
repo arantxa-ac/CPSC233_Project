@@ -13,6 +13,6 @@ In order to play the game:
 1) The program will ask you type 'start' in order to initiate the game.
 2) In order to jump over obstacles type 'j'
 3) In order to load the next frame type 'run'
-4) if you hit an obstacle then the first player's game will be over and the second player's run will start.
+4) If you hit an obstacle then the first player's game will be over and the second player's run will start.
 5) The instructions for the second player are the same from 1-3.
-
+6) When the second player hits an obstacle the game will be over.
