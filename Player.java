@@ -1,9 +1,11 @@
 
 public class Player {
+	// Variable declaration 
 	private int X;
 	private int Y;
 	private String Input;
 	
+	//This method gets the jump input, if the input is euqals to character j then it returns true, else false
 	public boolean getJumpInput()
 	{
 		if (getInput().equals("j"))
@@ -15,7 +17,7 @@ public class Player {
 	//duck not needed yet for the first demo
 	/*public void duck()
 	{
-		// Will need to do duck mechanics -- what does this look like for the demo?
+		// Will need to do duck mechanics -- what does this look like
 	}
 
 	public boolean getDuckInput()
@@ -26,31 +28,39 @@ public class Player {
 			return false;
 	}*/
 	
+	
 	public void jump()
 	{
-		// Will need to do jump mechanics -- what does this look like for the demo?
+		// Will need to do jump mechanics
 	}
 
+	//Getter function for xcoordinate
 	public int getX() {
 		return X;
 	}
 
+	//Setter function for x coordinate
 	public void setX(int x) {
 		X = x;
 	}
-
+	
+	//This is the getter function for the Y coordinate
 	public int getY() {
 		return Y;
 	}
 
+	//This is the setter function for the y coordinate 
 	public void setY(int y) {
 		Y = y;
 	}
 
+	//This is the getter function for the input 
 	public String getInput() {
 		return Input;
 	}
 
+	//This is the setter for the input 
+	//When implemented with FX this will be a keylistener input
 	public void setInput(String input) {
 		this.Input = input;
 	}
