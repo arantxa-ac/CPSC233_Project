@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Demo1Game {
+public class Game{
 	//First import needed objects
 	static Player runner = new Player();	
 	static Scanner userInput = new Scanner(System.in);
