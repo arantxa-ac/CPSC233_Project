@@ -4,23 +4,23 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Pane; 
 
 public class Player extends Sprite{
+	//used for collision detection
 	private final int HITBOXSIZE = 95;
 	
 	public Player(Pane layer, Image image, int x, int y, boolean animated) {
 		super(layer, image, x, y, animated);
 	}
 	
+	//TODO: figure out how to call on the sprite animation from here
 	public void animate() {
 		Animate dinoRun = new Animate();
 		dinoRun.start(primaryStage);
 	}
 	
+	//Determines if the player will jump or not 
+	//TODO: needs the event handler
 	public void jump() {
 		
-	}
-	
-	public void getHitbox() {
-		bounds(HITBOXSIZE);
 	}
 	
 	public boolean collision(Rectangle playerHitbox, Rectangle obstacleHitbox) {
