@@ -1,0 +1,23 @@
+import java.util.Random;
+
+import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
+
+public class Obstacle extends Sprite {
+	//rate new obstacles get generated
+	
+	private int rate;
+	
+	public Obstacle(Pane layer, Image image, int x, int y) {
+		super(layer, image, x, y);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void generateObstacle() {
+		Random rand = new Random();
+		int generate = rand.nextInt(this.rate);
+		if(generate == 0)
+			return Obstacle;
+	}
+
+}
