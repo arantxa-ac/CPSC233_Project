@@ -8,31 +8,39 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.awt.Rectangle;
+
 public class Sprite extends Application{
+	
+	private final int HITBOXBOUNDS = 5;
 	private Image image;
 	private ImageView imageView;
 	private Pane layer;
 	
 	private int x;
 	private int y;
-	private boolean animated;
 	
-	public Sprite(Pane layer, Image image, int x, int y, boolean animated) {
+	//Constructor where:
+	// layer determines the sprites placement on the screen
+	// image is the sprite image used
+	// x = the x coordinate where the sprite will be located on the screen
+	// y = the y coordinate where the sprite will be located on the screen
+	public Sprite(Pane layer, Image image, int x, int y) {
 		this.layer = layer;
 		this.image = image;
 		this.x = x;
 		this.y = y;
-		this.animated = animated;
 		
 		addToLayer();
 	}
 	
+	//adds the sprite to the GUI
 	public void addToLayer() {
 		this.layer.getChildren().add(this.imageView);
 	}
 
-	public void setImage(Image image) {
-		this.image = image;
+	public void setImage(String imageName) {
+		this.image = new Image(imageName);
 	}
 	
 	public Image getImage() {
@@ -71,12 +79,13 @@ public class Sprite extends Application{
 		return this.y;
 	}
 	
-	public void setAnimated(boolean animated) {
-		this.animated = animated;
-	}
-	
-	public boolean getAnimated() {
-		return this.animated;
+	//sets up a rectangle hitbox around each sprite 
+	public Rectangle hitbox(int HITBOXSIZE) {
+		// x = the x coordinate of the upper left corner of the hitbox around the sprite
+		//y = the y coordinate of the upper left corner of the hitbox around the sprite
+		//Don't want the rectangle to start right around the sprite, want a little bit of space
+		
+		return (new Rectangle(x - HITBOXBOUNDS,y - HITBOXBOUNDS, HITBOXSIZE, HITBOXSIZE));
 	}
 	
 	@Override
