@@ -1,0 +1,87 @@
+
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+
+public class Sprite extends Application{
+	private Image image;
+	private ImageView imageView;
+	private Pane layer;
+	
+	private int x;
+	private int y;
+	private boolean animated;
+	
+	public Sprite(Pane layer, Image image, int x, int y, boolean animated) {
+		this.layer = layer;
+		this.image = image;
+		this.x = x;
+		this.y = y;
+		this.animated = animated;
+		
+		addToLayer();
+	}
+	
+	public void addToLayer() {
+		this.layer.getChildren().add(this.imageView);
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
+	}
+	
+	public Image getImage() {
+		return this.image;
+	}
+	
+	public void setImageView(ImageView imageView) {
+		this.imageView = imageView;
+	}
+	
+	public ImageView getImageView() {
+		return this.imageView;
+	}
+	
+	public void setLayer(Pane layer) {
+		this.layer = layer;
+	}
+	
+	public Pane getLayer() {
+		return layer;
+	}
+	
+	public void setX(int x) {
+		this.x = x;
+	}
+	
+	public int getX() {
+		return this.x;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+	
+	public int getY() {
+		return this.y;
+	}
+	
+	public void setAnimated(boolean animated) {
+		this.animated = animated;
+	}
+	
+	public boolean getAnimated() {
+		return this.animated;
+	}
+	
+	@Override
+	public void start(Stage arg0) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+}
