@@ -1,0 +1,49 @@
+import javafx.animation.Animation;
+import javafx.application.Application;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+
+public class Animate extends Application {
+	
+	private static Image image = new Image("trexPlayer.png");
+    private static int columns = 2;
+    private static int count =2;
+    private static int offset_x = 176;
+    private static int offset_y = 0;
+    private static int width = 88;
+    private static int height = 94;
+    
+   public Animate(Image image, int columns, int count, int offset_x, int offset_y, int width, int height) {
+    	this.image = image;
+    	this.columns = columns;
+    	this.count = count;
+    	this.offset_x = offset_x;
+    	this.offset_y = offset_y;
+    	this.width = width;
+    	this.height = height;
+    	
+     }
+    
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
+
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Dinosaur Running");
+
+        final ImageView imageView = new ImageView(image);
+        imageView.setViewport(new Rectangle2D(offset_x, offset_y, width, height));
+
+        final Animation animation = new SpriteAnimation(imageView,Duration.millis(400),count, columns,offset_x, offset_y,width, height);
+        animation.setCycleCount(Animation.INDEFINITE);
+        animation.play();
+
+        primaryStage.setScene(new Scene(new Group(imageView)));
+        primaryStage.show();
+    }
+}
