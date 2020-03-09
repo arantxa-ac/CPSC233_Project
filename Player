@@ -1,0 +1,33 @@
+import java.awt.Rectangle;
+
+import javafx.scene.image.Image;
+import javafx.scene.layout.Pane; 
+
+public class Player extends Sprite{
+	private final int HITBOXSIZE = 95;
+	
+	public Player(Pane layer, Image image, int x, int y, boolean animated) {
+		super(layer, image, x, y, animated);
+	}
+	
+	public void animate() {
+		Animate dinoRun = new Animate();
+		dinoRun.start(primaryStage);
+	}
+	
+	public void jump() {
+		
+	}
+	
+	public void getHitbox() {
+		bounds(HITBOXSIZE);
+	}
+	
+	public boolean collision(Rectangle playerHitbox, Rectangle obstacleHitbox) {
+		boolean collide = false;
+		if(playerHitbox.intersects(obstacleHitbox))
+			collide = true;
+		return collide;
+	}
+	
+}
