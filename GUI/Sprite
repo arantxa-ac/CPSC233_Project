@@ -1,5 +1,5 @@
-
 import javafx.application.Application;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -20,17 +20,25 @@ public class Sprite extends Application{
 	private int x;
 	private int y;
 	
+	private SpriteAnimation animation;
+	
 	//Constructor where:
 	// layer determines the sprites placement on the screen
 	// image is the sprite image used
 	// x = the x coordinate where the sprite will be located on the screen
 	// y = the y coordinate where the sprite will be located on the screen
+	
 	public Sprite(Pane layer, Image image, int x, int y) {
 		this.layer = layer;
 		this.image = image;
 		this.x = x;
 		this.y = y;
-		
+	}
+	
+	public void animate(Image image, Duration duration, int count, int columns, int offset_X, int offset_Y, int width, int height) {
+		this.imageView = new ImageView(image);
+		this.imageView.setViewport(new Rectangle2D(offset_X, offset_Y, width, height));
+		animation = new SpriteAnimation(imageView,duration, count, columns, offset_X, offset_Y, width, height);
 		addToLayer();
 	}
 	
@@ -47,8 +55,8 @@ public class Sprite extends Application{
 		return this.image;
 	}
 	
-	public void setImageView(ImageView imageView) {
-		this.imageView = imageView;
+	public void setImageView() {
+		this.imageView = new ImageView(this.image);
 	}
 	
 	public ImageView getImageView() {
@@ -79,6 +87,10 @@ public class Sprite extends Application{
 		return this.y;
 	}
 	
+	public static void main(String[] args) {
+		launch(args);
+	}
+	
 	//sets up a rectangle hitbox around each sprite 
 	public Rectangle hitbox(int HITBOXSIZE) {
 		// x = the x coordinate of the upper left corner of the hitbox around the sprite
@@ -87,10 +99,5 @@ public class Sprite extends Application{
 		
 		return (new Rectangle(x - HITBOXBOUNDS,y - HITBOXBOUNDS, HITBOXSIZE, HITBOXSIZE));
 	}
-	
-	@Override
-	public void start(Stage arg0) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
+
 }
