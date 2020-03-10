@@ -1,5 +1,3 @@
-package finalproject;
-
 import java.util.TimerTask;
 import java.util.Scanner;
 import java.util.Timer;
