@@ -1,5 +1,3 @@
-package finalproject;
-
 public class Player {
 	// Variable declaration 
 	private int X;
