@@ -48,8 +48,8 @@ public class GameApp extends Application{
 			Pane playerPane = new Pane();
 			playerPane.setBackground(null);
 			Image image = new Image(getClass().getResourceAsStream("trexPlayer.png"));
-			ImageView imageView = new ImageView(image);
-			Player player = new Player(playerPane,image,-600,400);
+//			ImageView imageView = new ImageView(image);
+			Player player = new Player(playerPane,image,0,200);
 			root.getChildren().add(playerPane);			
 			
 			//Create a scene.
