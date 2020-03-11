@@ -40,6 +40,8 @@ public class Sprite extends Application{
 		this.imageView = new ImageView(image);
 		this.imageView.setViewport(new Rectangle2D(offset_X, offset_Y, width, height));
 		animation = new SpriteAnimation(imageView,duration, count, columns, offset_X, offset_Y, width, height);
+		 animation.setCycleCount(animation.INDEFINITE);
+	     animation.play();
 		addToLayer();
 	}
 	
@@ -99,6 +101,17 @@ public class Sprite extends Application{
 		//Don't want the rectangle to start right around the sprite, want a little bit of space
 		
 		return (new Rectangle(x - HITBOXBOUNDS,y - HITBOXBOUNDS, HITBOXSIZE, HITBOXSIZE));
+	}
+
+	@Override
+	public void start(Stage arg0) throws Exception {
+		launch(arg0);
+		
+	}
+
+	private void launch(Stage arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
