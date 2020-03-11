@@ -33,6 +33,7 @@ public class Sprite extends Application{
 		this.image = image;
 		this.x = x;
 		this.y = y;
+		addToLayer();
 	}
 	
 	public void animate(Image image, Duration duration, int count, int columns, int offset_X, int offset_Y, int width, int height) {
