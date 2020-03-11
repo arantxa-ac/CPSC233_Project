@@ -17,6 +17,12 @@ import javafx.animation.TranslateTransition;
 
 
 public class GameApp extends Application{
+	
+	Pane root;
+	Pane playerPane;
+	Pane obstaclePane;
+	Pane groundPane;
+	
 	@Override
 	//Override the start method.
 	public void start(Stage primaryStage) {
@@ -24,34 +30,29 @@ public class GameApp extends Application{
 		try {
 			
 			//Create root pane.
-			Pane root = new Pane();
-			
-	//BACKGROUND
-			//Create a new background layer and add background image.
-//			Group bg = new Group();
-//			Image ground = new Image(getClass().getResourceAsStream("background.png"));
-//			ImageView bgIV = new ImageView(ground);
-//			bg.getChildren().add(bgIV);
-//			Bounds bg1Bounds = bgIV.getBoundsInLocal();
-			
-			//Tracker of background bounds. 
-			
-			//Move background layer
-			
-			
-			//Add background layer to root.
-//			root.getChildren().add(bg);
-			
-			
-			
+			root = new Pane();
+				
+	//PLAYER
 			//Create new layer and add a player to it
-			Pane playerPane = new Pane();
-			playerPane.setBackground(null);
-			Image image = new Image(getClass().getResourceAsStream("trexPlayer.png"));
-//			ImageView imageView = new ImageView(image);
-			Player player = new Player(playerPane,image,0,200);
-			root.getChildren().add(playerPane);			
+			playerPane = new Pane();
+			Image imagePlayer = new Image(getClass().getResourceAsStream("trexPlayer.png"));
+			Player player = new Player(playerPane,imagePlayer,0,200);
+			root.getChildren().add(playerPane);		
 			
+	//OBTACLES
+			//Create new layer
+			obstaclePane = new Pane();
+			Image imageObstacle = new Image(getClass().getResourceAsStream("single_big_cactus.png"));
+			Obstacle obstacle = new Obstacle(obstaclePane,imageObstacle,300,200);
+			root.getChildren().add(obstaclePane);
+			
+	//GROUND
+			groundPane = new Pane();
+			Image imageGround = new Image(getClass().getResourceAsStream("ground.png"));
+			Ground ground = new Ground (groundPane,imageGround,0,280);
+			root.getChildren().add(groundPane);
+			
+	//SCENE
 			//Create a scene.
 			Scene scene = new Scene(root,600,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());			
@@ -66,7 +67,8 @@ public class GameApp extends Application{
 						player.jump();
 				}
 			});
-				
+			
+	//STAGE
 			//Give the stage a title.
 			primaryStage.setTitle("T-Rex Run");
 			//Set the scene on primary stage and show stage.
