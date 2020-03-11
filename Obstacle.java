@@ -6,7 +6,7 @@ public class Obstacle {
 	//1 to 5 chance of generating an obstacle
 	private static int rate = 5;
 	
-	//constructors to change defalt values
+	//constructors to change default values
 	public Obstacle(int rate, String Obstacle) {
 		this.rate = rate;
 		this.Obstacle = Obstacle;
@@ -41,7 +41,15 @@ public class Obstacle {
 		else{
 			return Ground;
 		}
-		
+	}
+	
+	public static boolean CheckObstacles(String testString) {
+		if (testString == Obstacle) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 }
