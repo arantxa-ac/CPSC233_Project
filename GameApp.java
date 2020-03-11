@@ -1,7 +1,9 @@
 import java.util.Collection;
 
 import javafx.application.*;
+import javafx.beans.value.ChangeListener;
 import javafx.event.EventHandler;
+import javafx.geometry.Bounds;
 import javafx.stage.*;
 import javafx.util.Duration;
 import javafx.scene.*;
@@ -10,7 +12,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.input.*;
-import javafx.scene.input.KeyCode;
+import javafx.animation.AnimationTimer;
+import javafx.animation.TranslateTransition;
 
 
 public class GameApp extends Application{
@@ -23,10 +26,30 @@ public class GameApp extends Application{
 			//Create root pane.
 			Pane root = new Pane();
 			
+	//BACKGROUND
+			//Create a new background layer and add background image.
+//			Group bg = new Group();
+//			Image ground = new Image(getClass().getResourceAsStream("background.png"));
+//			ImageView bgIV = new ImageView(ground);
+//			bg.getChildren().add(bgIV);
+//			Bounds bg1Bounds = bgIV.getBoundsInLocal();
+			
+			//Tracker of background bounds. 
+			
+			//Move background layer
+			
+			
+			//Add background layer to root.
+//			root.getChildren().add(bg);
+			
+			
+			
 			//Create new layer and add a player to it
 			Pane playerPane = new Pane();
-			Image image = new Image("trexPlayer.png");
-			Player player = new Player(playerPane,image,0,100);
+			playerPane.setBackground(null);
+			Image image = new Image(getClass().getResourceAsStream("trexPlayer.png"));
+			ImageView imageView = new ImageView(image);
+			Player player = new Player(playerPane,image,-600,400);
 			root.getChildren().add(playerPane);			
 			
 			//Create a scene.
@@ -48,6 +71,7 @@ public class GameApp extends Application{
 			primaryStage.setTitle("T-Rex Run");
 			//Set the scene on primary stage and show stage.
 			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
 			primaryStage.show();
 			
 		} catch(Exception e) {
@@ -65,4 +89,5 @@ public class GameApp extends Application{
 	{
 		
 	}
+
 }
