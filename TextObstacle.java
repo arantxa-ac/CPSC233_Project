@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class TextObstacle {
+public class TextObstacle extends Obstacle{
 	//rate:int
 	//sprite
 	//hitbox:rectangle
