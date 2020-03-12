@@ -44,7 +44,7 @@ public class GUIGame extends Application {
 		{
 			player.processInput(getScene());
 			world.update();
-			renderGUI();
+//			renderGUI();
 		}
 	}
 
