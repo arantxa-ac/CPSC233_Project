@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class TextPlayer {
+public class TextPlayer extends Player{
 	//input
 	//player:Sprite
 	Scanner userInput = new Scanner(System.in);
