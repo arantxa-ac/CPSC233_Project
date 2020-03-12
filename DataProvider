@@ -1,0 +1,71 @@
+//This class is used to return needed data for sprite animations, the window, and needed constants for the game to run. 
+//Refer to it and it's methods to get data/constants for the resto of the code
+
+public class DataProvider {
+	//These ints represent pixels
+	private static int WINDOW_WIDTH = 300;
+	private static int WINDOW_HEIGHT = 200;
+	
+	//private static int FRAME_RATE = 2; ??
+	
+	//The speed int will be millisecons, used for Duration in SPrite Animation
+	private static int GROUND_SPEED = 2000;
+	private static String GROUND_IMAGE = "Sprites/ground.png";
+	//for SpriteAnimation: count, columns, offset_x, offset_y, width, height
+	private static int[] GROUND_SETTINGS = {10, 10, 0, 120, 14};
+	
+	private static int PLAYER_SPEED = 400;
+	private static String PLAYER_RUN_IMAGE = "Sprites/trexPlayer.png";
+	private static int[] PLAYER_RUN_SETTINGS = {2,2,176, 0, 88, 94};
+	
+	//No need for single_cactus settings, just position the png at a x/y in the window
+	// cacti aren't animated
+	private static String SINGLE_CACTUS = "Sprites/single_big_cactus.png";
+	private static String TRIPLE_MULTI_CACTUS = "Sprites/triple_multi_cactus.png";
+	private static String TRIPLE_SMALL_CACTUS = "Sprites/triple_small_cactus.png";
+	
+	/*
+	    //All these ints represent pixels
+	    private static int PLAYER_INITIAL_X_POS = ;
+	    private static double INITIAL_VELOCITY = ;
+	    //Acceleration acts as a constant simulating gravity for the jump physics
+	    private static double ACCELERATION = ;
+	    private static int RUNNING_ANIM_SPEED = ;
+	 */
+	
+	public static int getWINDOW_WIDTH() {
+		return WINDOW_WIDTH;
+	}
+	public static int getWINDOW_HEIGHT() {
+		return WINDOW_HEIGHT;
+	}
+	public static int getGROUND_SPEED() {
+		return GROUND_SPEED;
+	}
+	public static String getGROUND_IMAGE() {
+		return GROUND_IMAGE;
+	}
+	public static int[] getGROUND_SETTINGS() {
+		return GROUND_SETTINGS;
+	}
+	public static int getPLAYER_SPEED() {
+		return PLAYER_SPEED;
+	}
+	public static String getPLAYER_RUN_IMAGE() {
+		return PLAYER_RUN_IMAGE;
+	}
+	public static int[] getPLAYER_RUN_SETTINGS() {
+		return PLAYER_RUN_SETTINGS;
+	}
+	public static String getSINGLE_CACTUS() {
+		return SINGLE_CACTUS;
+	}
+	public static String getTRIPLE_MULTI_CACTUS() {
+		return TRIPLE_MULTI_CACTUS;
+	}
+	public static String getTRIPLE_SMALL_CACTUS() {
+		return TRIPLE_SMALL_CACTUS;
+	}
+	
+	
+}
