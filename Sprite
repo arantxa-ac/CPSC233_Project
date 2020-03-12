@@ -1,0 +1,17 @@
+import java.awt.Rectangle;
+
+public class Sprite  {
+	private int hitboxSize;
+	private int x;
+	private int y;
+	
+	public Sprite(int hitboxSize, int x, int y) {
+		this.hitboxSize = hitboxSize;
+		this.x = x;
+		this.y=y;
+	}
+	
+	public Rectangle hitbox() {
+		return new Rectangle(this.x, this.y, hitboxSize, hitboxSize);
+	}
+}
