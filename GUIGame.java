@@ -12,6 +12,8 @@ public class GUIGame extends Application {
 	Pane root;
 	World world = new World();
 	PlayerGUI player = new PlayerGUI();
+	Obstacle obstacle = new Obstacle();
+	Ground ground = new Ground();
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -20,8 +22,8 @@ public class GUIGame extends Application {
 			
 			//Add player, ground and obstacle layers.
 			root.getChildren().add(player.getLayer(player));
-			root.getChildren().add(world.obstacle.getLayer());
-			root.getChildren().add(world.ground.getLayer());
+			root.getChildren().add(obstacle.getLayer());
+			root.getChildren().add(ground.getLayer());
 			
 			scene = new Scene(root,DataProvider.getWINDOW_WIDTH(),DataProvider.getWINDOW_HEIGHT());
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
