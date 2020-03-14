@@ -25,5 +25,10 @@ public class World extends GameObject {
 		}
 		game.set(game.size() , Obstacle.generate());
 	}
+	
+	//Getter for ArrayList<GameObject> game.
+	public ArrayList<GameObject> getGame() {
+		return game;
+	}
 }
 
