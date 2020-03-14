@@ -15,12 +15,16 @@ public class PlayerGUI extends Player
 	int HITBOXSIZE = 95;
 	int X = 0;
 	int Y = 200;
-	ImageView imageView;
-	
-	public PlayerGUI()
-	{
-		Sprite player= new Sprite(HITBOXSIZE,X,Y);
-	}
+	Image image = new Image(getClass().getResourceAsStream(DataProvider.getPLAYER_RUN_IMAGE()));
+	ImageView imageView = new ImageView(image);
+	Duration duration = Duration.millis(DataProvider.getPLAYER_SPEED());
+	int count = DataProvider.getPLAYER_RUN_SETTINGS()[0];
+	int columns = DataProvider.getPLAYER_RUN_SETTINGS()[1];
+	int offsetX = DataProvider.getPLAYER_RUN_SETTINGS()[2];
+	int offsetY = DataProvider.getPLAYER_RUN_SETTINGS()[3];
+	int width = DataProvider.getPLAYER_RUN_SETTINGS()[4];
+	int height = DataProvider.getPLAYER_RUN_SETTINGS()[5];
+	Sprite playerSprite= new Sprite(HITBOXSIZE,X,Y);
 	
 	public void processInput(Scene scene)
 	{
@@ -30,7 +34,7 @@ public class PlayerGUI extends Player
 			public void handle(KeyEvent event)
 			{
 				if (event.getCode() == KeyCode.UP)
-					this.jump();
+					getPlayerGUI().Jump();
 			}
 		});
 	}
@@ -38,8 +42,8 @@ public class PlayerGUI extends Player
 	public Pane getLayer(PlayerGUI player)
 	{
 		Pane playerPane = new Pane();
-		hitbox();
-		player.animate(DataProvider.getPLAYER_RUN_IMAGE(), Duration.millis(DataProvider.getPLAYER_SPEED()), DataProvider.getPLAYER_RUN_SETTINGS());
+		playerSprite.hitbox();
+		SpriteAnimation animation = new SpriteAnimation(imageView,duration,count,columns,offsetX,offsetY,width,height);
 		imageView.setX(X);
 		imageView.setY(Y);
 		playerPane.getChildren().add(imageView);
@@ -52,5 +56,10 @@ public class PlayerGUI extends Player
 		SpriteAnimation animation = new SpriteAnimation(imageView,duration, count, columns, offset_X, offset_Y, width, height);
 		 animation.setCycleCount(animation.INDEFINITE);
 	     animation.play();
+	}
+	
+	public PlayerGUI getPlayerGUI()
+	{
+		return this;
 	}
 }
