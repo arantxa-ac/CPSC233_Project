@@ -15,15 +15,8 @@ public class ObstacleGUI extends Obstacle{
 	int HITBOXSIZE = 95;
 	int X = DataProvider.getWINDOW_WIDTH();
 	int Y = 200;
-	Image Obstacle_image;
-	ImageView imageView;
-	int count;
-	int columns;
-	int offsetX;
-	int offsetY;
-	int width;
-	int height;
-	Duration duration;
+	Image Obstacle_image = new Image(getClass().getResourceAsStream(DataProvider.getSINGLE_CACTUS()));
+	ImageView imageView = new ImageView(Obstacle_image);
 	Sprite obstacleSprite= new Sprite(HITBOXSIZE,X,Y);
 	
 
