@@ -1,10 +1,6 @@
-import javax.management.ObjectName;
-
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 
 
@@ -40,8 +36,8 @@ public class GUIGame extends Application {
 	
 	public Pane renderGUI(Pane toAdd)
 	{
-//		Ground ground = new Ground();
-//		toAdd.getChildren().add(ground.getLayer());
+		GroundGUI ground = new GroundGUI();
+		toAdd.getChildren().add(ground.getLayer());
 		PlayerGUI player = new PlayerGUI();
 		toAdd.getChildren().add(player.getLayer());
 //		world.getGame().forEach((object)-> toAdd.getChildren().add(object.getLayer()));
