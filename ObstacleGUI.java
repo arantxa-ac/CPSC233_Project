@@ -17,11 +17,12 @@ public class ObstacleGUI extends Obstacle{
 	int Y;
 	Image Obstacle_image;
 	ImageView imageView;
-	int columns = DataProvider.getPLAYER_RUN_SETTINGS()[1];
-	int offsetX = DataProvider.getPLAYER_RUN_SETTINGS()[2];
-	int offsetY = DataProvider.getPLAYER_RUN_SETTINGS()[3];
-	int width = DataProvider.getPLAYER_RUN_SETTINGS()[4];
-	int height = DataProvider.getPLAYER_RUN_SETTINGS()[5];
+	int count;
+	int columns;
+	int offsetX;
+	int offsetY;
+	int width;
+	int height;
 	Duration duration;
 	Sprite obstacleSprite= new Sprite(HITBOXSIZE,X,Y);
 	
