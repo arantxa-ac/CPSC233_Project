@@ -1,4 +1,3 @@
-import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 
 public abstract class GameObject {
@@ -19,7 +18,7 @@ public abstract class GameObject {
 		this.y = y;
 	}
 	
-	public abstract Image getImage();
-	
 	public abstract Pane getLayer();
+	
+	public abstract Sprite getSprite();
 }
