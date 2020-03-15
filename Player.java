@@ -1,6 +1,6 @@
 import java.awt.Rectangle;
 
-public class Player extends GameObject 
+public abstract class Player extends GameObject 
 
 {
 
