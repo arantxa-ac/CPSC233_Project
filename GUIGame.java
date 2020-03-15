@@ -36,7 +36,7 @@ public class GUIGame extends Application implements KeyListener {
 					
 		//SCENE
 			scene = new Scene(root,DataProvider.getWINDOW_WIDTH(),DataProvider.getWINDOW_HEIGHT());
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 		//EVENT HANDLER
 			 scene.setOnKeyPressed(new EventHandler<KeyEvent>()
