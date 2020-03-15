@@ -12,7 +12,7 @@ public abstract class Player extends GameObject
 		gravity = DataProvider.getACCELERATION();
 		while (initalVelocity > (-1*initalVelocity))
 		{
-			initalVelocity -= gravity;
+			setY(((1/2) * gravity) * (getX()*getX()) + (DataProvider.getINITIALVELOCITY * getX()) + (getX()));
 		}
 
 	}
