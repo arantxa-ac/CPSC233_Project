@@ -16,7 +16,7 @@ public class PlayerGUI extends Player
 	int HITBOXSIZE = 95;
 	int X = 0;
 	int Y = 200;
-	Image image = new Image(getClass().getResourceAsStream(DataProvider.getPLAYER_IMAGE()));
+	Image image = new Image(DataProvider.getPLAYER_IMAGE());
 	ImageView imageView = new ImageView(image);
 	Duration duration = Duration.millis(DataProvider.getPLAYER_SPEED());
 	int count = DataProvider.getPLAYER_RUN_SETTINGS()[0];
