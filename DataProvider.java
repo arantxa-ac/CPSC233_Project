@@ -12,7 +12,7 @@ public class DataProvider {
 	//Image 
 	private static String GROUND_IMAGE = "Sprites/ground.png";
 	//for SpriteAnimation: count, columns, offset_x, offset_y, width, height
-	private static int[] GROUND_SETTINGS = {5, 5, 0, 0, 240, 14};
+	private static int[] GROUND_SETTINGS = {{2,2,0,0,600,14}};
 	
 	private static int PLAYER_SPEED = 400;
 	private static String PLAYER_IMAGE = "Sprites/trexPlayer.png";
