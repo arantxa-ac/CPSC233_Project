@@ -24,7 +24,7 @@ public abstract class Player extends GameObject
 //		{
 //			if (g instanceof Obstacle)
 //			{
-//				if(g.getSprite().hitbox().intersects(world.getGame().get(0).getSprite().hitbox()))
+//				if(g.getSprite().hitbox().intersects(world.getGame().get(0).hitbox()))
 //						{
 //						return true;
 //						}
