@@ -4,14 +4,11 @@ public abstract class Player extends GameObject
 
 {
 
-	private double initalVelocity;
-	private double gravity;
-
 	 World obstacleList = new World();
 
 	public void Jump()
 	{
-		initalVelocity = DataProvider.getINITAL_VELOCITY();
+		initalVelocity = DataProvider.getINITIAL_VELOCITY();
 		gravity = DataProvider.getACCELERATION();
 		while (initalVelocity > (-1*initalVelocity))
 		{
@@ -22,11 +19,11 @@ public abstract class Player extends GameObject
 
 	public boolean checkCollision()
 	{
-		for (GameObject g: obstacleList.getWorldList())
+		for (GameObject g: obstacleList.getGame())
 		{
 			if (g.getClass() == Obstacle)
 			{
-				if(g.getHitbox().intersects(getWorldList.get(0).hitbox()
+				if(g.getSprite().hitbox().intersects(obstacleList.getGame().get(0).getSprite().hitbox()))
 						{
 						return true;
 						}
@@ -38,3 +35,4 @@ public abstract class Player extends GameObject
 	}
 
 }
+
