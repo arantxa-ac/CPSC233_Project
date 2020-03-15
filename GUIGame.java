@@ -1,3 +1,4 @@
+
 import java.awt.Label;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -23,19 +24,23 @@ public class GUIGame extends Application implements KeyListener {
 			 Pane root = new Pane();
 			 Pane layers = new Pane();
 			 PlayerGUI player = new PlayerGUI();
-//			 World world = new World();
-			 
+			 World world = new World();
+			 ArrayList<GameObject> obj = world.getGame();
+			 obj.set(0, player);
 		 
-//				while(!player.checkCollision())
-//				{
-//					world.update();
-					//root.getChildren().add(renderGUI(w, layers, player));
-//				}
+			 
+				while(!player.checkCollision())
+				{
+					World.update();
+					root.getChildren().clear();
+					layers.getChildren().clear(); 
+					root.getChildren().add(renderGUI(world, layers, player));
+				}
 			 
 					
 		//SCENE
 			scene = new Scene(root,DataProvider.getWINDOW_WIDTH(),DataProvider.getWINDOW_HEIGHT());
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 		//EVENT HANDLER
 			 scene.setOnKeyPressed(new EventHandler<KeyEvent>()
@@ -66,8 +71,9 @@ public class GUIGame extends Application implements KeyListener {
 	public Pane renderGUI(World w, Pane toAdd, PlayerGUI player)
 	{
 //		world.getGame().forEach((object)-> toAdd.getChildren().add(object.getLayer()));
-		for(GameObject object : w.getGame()) {
-			toAdd.getChildren().add(object.getLayer());
+		for(int i = 0; i < w.getGame().size(); i++) {
+			if(w.getGame().get(i) != null && w.getGame().get(i).getLayer() != null)
+				toAdd.getChildren().add(w.getGame().get(i).getLayer());
 		}
 		return toAdd;
 	}
