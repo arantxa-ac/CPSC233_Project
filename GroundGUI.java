@@ -3,7 +3,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
-public class Ground {
+public class Ground extends GameObject{
 	private final Image IMAGE = new Image(DataProvider.getGROUND_IMAGE());
 	private final int COUNT = DataProvider.getGROUND_SETTINGS()[0];
     private final int COLUMNS = DataProvider.getGROUND_SETTINGS()[1];
