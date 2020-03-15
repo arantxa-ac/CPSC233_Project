@@ -1,61 +1,71 @@
 import javafx.application.Application;
-import javafx.stage.Stage;
+import javafx.event.EventHandler;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
-
-
-public class GUIGame extends Application {
+public class PlayerGUI extends Player
+{
 	
-	static Scene scene;
+	int HITBOXSIZE = 95;
+	int X = 0;
+	int Y = 200;
+	Image image = new Image(getClass().getResourceAsStream(DataProvider.getPLAYER_IMAGE()));
+	ImageView imageView = new ImageView(image);
+	Duration duration = Duration.millis(DataProvider.getPLAYER_SPEED());
+	int count = DataProvider.getPLAYER_RUN_SETTINGS()[0];
+	int columns = DataProvider.getPLAYER_RUN_SETTINGS()[1];
+	int offsetX = DataProvider.getPLAYER_RUN_SETTINGS()[2];
+	int offsetY = DataProvider.getPLAYER_RUN_SETTINGS()[3];
+	int width = DataProvider.getPLAYER_RUN_SETTINGS()[4];
+	int height = DataProvider.getPLAYER_RUN_SETTINGS()[5];
+	Sprite playerSprite= new Sprite(HITBOXSIZE,X,Y);
 	
+	public void processInput(Scene scene)
+	{
+		scene.setOnKeyPressed(new EventHandler<KeyEvent>()
+		{
+			@Override
+			public void handle(KeyEvent event)
+			{
+				if (event.getCode() == KeyCode.UP)
+					getPlayerGUI().Jump();
+			}
+		});
+	}
+	
+	public Pane getLayer()
+	{
+		Pane playerPane = new Pane();
+		playerSprite.hitbox();
+		this.animate(image, duration, count, columns, offsetX, offsetY, width, height);
+		imageView.setX(X);
+		imageView.setY(Y);
+		playerPane.getChildren().add(imageView);
+		return playerPane;
+	}
+
+	public void animate(Image image, Duration duration, int count, int columns, int offset_X, int offset_Y, int width, int height) {
+		imageView = new ImageView(image);
+		imageView.setViewport(new Rectangle2D(offset_X, offset_Y, width, height));
+		SpriteAnimation animation = new SpriteAnimation(imageView,duration, count, columns, offset_X, offset_Y, width, height);
+		 animation.setCycleCount(animation.INDEFINITE);
+	     animation.play();
+	}
+	
+	public PlayerGUI getPlayerGUI()
+	{
+		return this;
+	}
+
 	@Override
-	public void start(Stage primaryStage) {		
-		try {
-			 Pane root = new Pane();
-			 
-			 Pane layers = new Pane();
-			 
-//			 World world = new World();
-			 root.getChildren().add(renderGUI(layers));
-			 
-			scene = new Scene(root,DataProvider.getWINDOW_WIDTH(),DataProvider.getWINDOW_HEIGHT());
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-		//STAGE
-			//Give the stage a title.
-			primaryStage.setTitle("T-Rex Run");
-			//Set the scene on primary stage and show stage.
-			primaryStage.setScene(scene);
-			primaryStage.setResizable(false);
-			primaryStage.show();
-		} 
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public Pane renderGUI(Pane toAdd)
-	{
-		GroundGUI ground = new GroundGUI();
-		toAdd.getChildren().add(ground.getLayer());
-		PlayerGUI player = new PlayerGUI();
-		toAdd.getChildren().add(player.getLayer());
-//		world.getGame().forEach((object)-> toAdd.getChildren().add(object.getLayer()));
-		return toAdd;
-	}
-	
-	public static void main(String[] args) {
-		launch();		
-//		while(!player.checkCollision())
-//		{
-//			player.processInput(getScene());
-//			world.update();
-//			renderGUI(world);
-//		}
+	public Sprite getSprite() {
+		return playerSprite;
 	}
 
-	public static Scene getScene() 
-	{
-		return scene;
-	}
 }
