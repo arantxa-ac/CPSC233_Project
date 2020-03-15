@@ -39,7 +39,7 @@ public class PlayerGUI extends Player
 		});
 	}
 	
-	public Pane getLayer(PlayerGUI player)
+	public Pane getLayer()
 	{
 		Pane playerPane = new Pane();
 		playerSprite.hitbox();
@@ -49,7 +49,7 @@ public class PlayerGUI extends Player
 		playerPane.getChildren().add(imageView);
 		return playerPane;
 	}
-	
+
 	public void animate(Image image, Duration duration, int count, int columns, int offset_X, int offset_Y, int width, int height) {
 		ImageView imageView = new ImageView(image);
 		imageView.setViewport(new Rectangle2D(offset_X, offset_Y, width, height));
@@ -61,5 +61,10 @@ public class PlayerGUI extends Player
 	public PlayerGUI getPlayerGUI()
 	{
 		return this;
+	}
+
+	@Override
+	public Image getImage() {
+		return image;
 	}
 }
