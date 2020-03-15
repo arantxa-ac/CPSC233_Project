@@ -10,14 +10,17 @@ public abstract class Player extends GameObject
 	{
 		int initialVelocity = (int) DataProvider.getINITIAL_VELOCITY();
 		double gravity = DataProvider.getACCELERATION();
-		while (initialVelocity >= (-1*initialVelocity))
-		{
-			setY(getY()+initialVelocity);
-			initialVelocity -= gravity;
+		int maxHeight = 0;
+		int originalHeight = 120;
+		int currentHeight = getY();
+		
+		while(getY() > maxHeight) {
+			currentHeight -= 0.01;
+			}
+		while(getY() < originalHeight) {
+			currentHeight += 0.01;
+			}
 		}
-
-	}
-
 	public boolean checkCollision()
 	{
 //		for (GameObject g: world.getGame())
