@@ -66,7 +66,7 @@ public class GUIGame extends Application implements KeyListener {
 	
 	public Pane renderGUI(World w, Pane toAdd, PlayerGUI player)
 	{
-//		world.getGame().forEach((object)-> toAdd.getChildren().add(object.getLayer()));
+//		w.getGame().forEach((object)-> toAdd.getChildren().add(object.getLayer()));
 		for(GameObject object : w.getGame()) {
 			toAdd.getChildren().add(object.getLayer());
 		}
