@@ -43,7 +43,7 @@ public class PlayerGUI extends Player
 	{
 		Pane playerPane = new Pane();
 		playerSprite.hitbox();
-		SpriteAnimation animation = new SpriteAnimation(imageView,duration,count,columns,offsetX,offsetY,width,height);
+		this.animate(image, duration, count, columns, offsetX, offsetY, width, height);
 		imageView.setX(X);
 		imageView.setY(Y);
 		playerPane.getChildren().add(imageView);
@@ -51,7 +51,7 @@ public class PlayerGUI extends Player
 	}
 
 	public void animate(Image image, Duration duration, int count, int columns, int offset_X, int offset_Y, int width, int height) {
-		ImageView imageView = new ImageView(image);
+		imageView = new ImageView(image);
 		imageView.setViewport(new Rectangle2D(offset_X, offset_Y, width, height));
 		SpriteAnimation animation = new SpriteAnimation(imageView,duration, count, columns, offset_X, offset_Y, width, height);
 		 animation.setCycleCount(animation.INDEFINITE);
