@@ -12,9 +12,9 @@ import javafx.util.Duration;
 
 public class ObstacleGUI extends Obstacle{
 
-	int HITBOXSIZE;
-	int X;
-	int Y;
+	int HITBOXSIZE = 95;
+	int X = DataProvider.getWINDOW_WIDTH();
+	int Y = 200;
 	Image Obstacle_image;
 	ImageView imageView;
 	int count;
@@ -32,7 +32,6 @@ public class ObstacleGUI extends Obstacle{
 	{
 		Pane obstaclePane = new Pane();
 		obstacleSprite.hitbox();
-		SpriteAnimation animation = new SpriteAnimation(imageView,duration,count,columns,offsetX,offsetY,width,height);
 		imageView.setX(X);
 		imageView.setY(Y);
 		obstaclePane.getChildren().add(imageView);
