@@ -1,8 +1,8 @@
 package codes;
 
 public class DataProvider {
-	private static int WINDOW_WIDTH = 300;
-	private static int WINDOW_HEIGHT = 200;
+	private static int WINDOW_WIDTH = 600;
+	private static int WINDOW_HEIGHT = 400;
 	
 	//private static int FRAME_RATE = 2; ??
 	//private static int NUMBER_OF_OBSTACLES = 2; ??
