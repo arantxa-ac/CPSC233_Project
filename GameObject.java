@@ -1,7 +1,10 @@
-public class GameObject {
+import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
+
+public abstract class GameObject {
 	private int x;
 	private int y;
-	Sprite s = new Sprite();
+
 	
 	public int getX() {
 		return x;
@@ -14,4 +17,9 @@ public class GameObject {
 	}
 	public void setY(int y) {
 		this.y = y;
+	}
+	
+	public abstract Image getImage();
+	
+	public abstract Pane getLayer();
 }
