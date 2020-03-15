@@ -36,5 +36,10 @@ public class GroundGUI extends GameObject{
 		return groundPane;
 	}
 
+	@Override
+	public Sprite getSprite() {
+		return null;
+	}
+
 
 }
