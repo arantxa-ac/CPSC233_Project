@@ -1,5 +1,7 @@
+
 import java.awt.Label;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -13,6 +15,7 @@ import javafx.scene.layout.Pane;
 
 public class GUIGame extends Application implements KeyListener {
 	
+
 	static Scene scene;
 	
 	@Override
@@ -21,14 +24,14 @@ public class GUIGame extends Application implements KeyListener {
 			 Pane root = new Pane();
 			 Pane layers = new Pane();
 			 PlayerGUI player = new PlayerGUI();
-//			 World world = new World();
-			 
+			 World world = new World();
+			 world.getGame().set(0, player);
 		 
-//				while(!player.checkCollision())
-//				{
-//					world.update();
-					root.getChildren().add(renderGUI(layers,player));
-//				}
+				while(!player.checkCollision())
+				{
+					World.update();
+					root.getChildren().add(renderGUI(world, layers, player));
+				}
 			 
 					
 		//SCENE
@@ -43,7 +46,7 @@ public class GUIGame extends Application implements KeyListener {
 					{
 						if (event.getCode() == KeyCode.UP)
 						{
-							player.Jump();
+							player.jump();
 							
 						}
 					}
@@ -61,17 +64,29 @@ public class GUIGame extends Application implements KeyListener {
 		}
 	}
 	
-	public Pane renderGUI(Pane toAdd, PlayerGUI player)
+	public Pane renderGUI(World w, Pane toAdd, PlayerGUI player)
 	{
-		GroundGUI ground = new GroundGUI();
-		toAdd.getChildren().add(ground.getLayer());
-		toAdd.getChildren().add(player.getLayer());
 //		world.getGame().forEach((object)-> toAdd.getChildren().add(object.getLayer()));
+		for(GameObject object : w.getGame()) {
+			toAdd.getChildren().add(object.getLayer());
+		}
 		return toAdd;
 	}
 	
 	public static void main(String[] args) {
 		launch();		
+	}
+	
+	public void main() {
+		World w = new World();
+		ArrayList<GameObject> game = w.getGame();
+		game.set(0, new PlayerGUI());
+		
+		PlayerGUI p = new PlayerGUI();
+		while(!p.checkCollision()) {
+			w.update();
+			renderGUI(w, p.getLayer(), p);
+		}
 	}
 
 	public static Scene getScene() 
