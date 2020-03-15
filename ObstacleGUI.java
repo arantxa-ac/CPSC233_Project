@@ -28,15 +28,15 @@ public class ObstacleGUI extends Obstacle{
 	
 
 	
-	public Pane getLayer(PlayerGUI player)
+	public Pane getLayer()
 	{
-		Pane playerPane = new Pane();
+		Pane obstaclePane = new Pane();
 		obstacleSprite.hitbox();
 		SpriteAnimation animation = new SpriteAnimation(imageView,duration,count,columns,offsetX,offsetY,width,height);
 		imageView.setX(X);
 		imageView.setY(Y);
-		playerPane.getChildren().add(imageView);
-		return playerPane;
+		obstaclePane.getChildren().add(imageView);
+		return obstaclePane;
 	}
 	
 	public ObstacleGUI getObstacleGUI()
