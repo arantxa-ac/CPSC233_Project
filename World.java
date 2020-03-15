@@ -1,5 +1,6 @@
 import java.util.ArrayList;
-public class World extends GameObject {
+
+public class World {
 
 	private static ArrayList<GameObject> game;
 	// Add the game objects into the world and print it
@@ -31,4 +32,3 @@ public class World extends GameObject {
 		return game;
 	}
 }
-
