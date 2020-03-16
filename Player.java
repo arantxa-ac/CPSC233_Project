@@ -8,17 +8,17 @@ public abstract class Player extends GameObject
 
 	public void Jump()
 	{
-		int initialVelocity = (int) DataProvider.getINITIAL_VELOCITY();
-		double gravity = DataProvider.getACCELERATION();
+		//int initialVelocity = (int) DataProvider.getINITIAL_VELOCITY();
+		//double gravity = DataProvider.getACCELERATION();
 		int maxHeight = 0;
 		int originalHeight = 120;
 		int currentHeight = getY();
 		
-		while(getY() > maxHeight) {
-			currentHeight -= 0.01;
+		while(currentHeight > maxHeight) {
+			setY(currentHeight--);
 			}
-		while(getY() < originalHeight) {
-			currentHeight += 0.01;
+		while(currentHeight < originalHeight) {
+			setY(currentHeight ++);
 			}
 		}
 	public boolean checkCollision()
