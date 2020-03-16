@@ -2,14 +2,14 @@ import java.util.ArrayList;
 
 public class World {
 
-	private static ArrayList<GameObject> game;
+	private static ArrayList<GameObject> game = new ArrayList<GameObject>();
 	// Add the game objects into the world and print it
 	public World() {
-		if(game.size() == 0){
-			game.add(new Player());
-			game.add(new GroundGUI());
-		}
-		game.add(Obstacle.generate());
+		
+		game.add(new Player());
+		game.add(new GroundGUI());
+		
+		game.add(new ObstacleGUI().generate());
 		for (int n = 0; n < game.size(); n++) {
 			System.out.print(game.get(n));
 		}
@@ -19,7 +19,7 @@ public class World {
 	// Update the world every frame
 	public static void update() {
 		// Create a new ArrayList
-		ArrayList<GameObject> preWorld = new ArrayList<GameObject>();
+	ArrayList<GameObject> preWorld = new ArrayList<GameObject>();
 		// Add each object from the game ArrayList into the new ArrayList
 		for (int n = 2; n < game.size(); n++) {
 			preWorld.add(game.get(n));
@@ -28,7 +28,7 @@ public class World {
 		for (int i = 2; i < (game.size() - 1) ; i++) {
 			game.set(i, preWorld.get(i+1));
 		}
-		game.set(game.size() , Obstacle.generate());
+		game.set(game.size()-1, new ObstacleGUI().generate());
 	}
 	
 	//Getter for ArrayList<GameObject> game.
