@@ -5,6 +5,8 @@ import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
 public class GroundGUI extends GameObject{
+	
+	//Instance Variables for GroundGUI
 	private static final double X = 0;
 	private static final double Y = 275;
 	private final Image IMAGE = new Image(getClass().getResourceAsStream(DataProvider.getGROUND_IMAGE()));
@@ -17,7 +19,17 @@ public class GroundGUI extends GameObject{
     private final int MILLISDURATION = DataProvider.getGROUND_SPEED();
     private ImageView imageView;
     
-    //animates the Ground Image
+	//ANIMATE METHOD
+	//Parameters:
+	//	-Image of the ground.
+	//	-Duration used for sprite animation.
+	//	-Count used for sprite animation.
+	//	-Columns used for sprite animation.
+	//	-Offset in X used for sprite animation.
+	//	-Offset in Y used for sprite animation.
+	//	-Width used for sprite animation.
+	// 	-Height used for sprite animation.
+	//This method animates the ground image.
     public void animate() {
 		imageView = new ImageView(IMAGE);
 		imageView.setViewport(new Rectangle2D(OFFSET_X, OFFSET_Y, WIDTH, HEIGHT));
@@ -26,6 +38,9 @@ public class GroundGUI extends GameObject{
 	     animation.play();
 	}
     
+	//GET LAYER METHOD
+	//Returns:
+	//	-Pane that contains imageView with animated ground in the specified coordinates.
 	public Pane getLayer()
 	{
 		Pane groundPane = new Pane();
@@ -36,6 +51,9 @@ public class GroundGUI extends GameObject{
 		return groundPane;
 	}
 
+	//GETTER FOR SPRITE
+	//Returns:
+	//	-Ground sprite which is null since it is not needed for collision detection.
 	@Override
 	public Sprite getSprite() {
 		return null;
@@ -43,3 +61,4 @@ public class GroundGUI extends GameObject{
 
 
 }
+
