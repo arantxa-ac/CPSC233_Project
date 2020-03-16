@@ -12,6 +12,35 @@ public class SpriteAnimation extends Transition {
 	private final int offsetY;
 	private final int width;
 	private final int height;
+
+	public ImageView getImageView() {
+		return imageView;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public int getColumns() {
+		return columns;
+	}
+
+	public int getOffsetX() {
+		return offsetX;
+	}
+
+	public int getOffsetY() {
+		return offsetY;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
 	
 	private int lastIndex = 5;
 
@@ -24,7 +53,7 @@ public class SpriteAnimation extends Transition {
 	        this.width = width;
 	        this.height = height;
 	        setCycleDuration(duration);
-	        setInterpolator(Interpolator.EASE_IN);
+	        setInterpolator(Interpolator.LINEAR);
 	    }
 	 
 	    protected void interpolate(double k) {

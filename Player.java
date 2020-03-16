@@ -1,76 +1,55 @@
-public class Player {
-		// Variable declaration 
-		private int X;
-		private int Y;
-		private String Input;
-		
-		//This method gets the jump input, if the input is euqals to character j then it returns true, else false
-		public boolean getJumpInput()
-		{
-			if (getInput().equals("j"))
-				return true;
-			else
-				return false;
-		}
-		
-		//duck not needed yet for the first demo
-		/*public void duck()
-		{
-			// Will need to do duck mechanics -- what does this look like
-		}
-		public boolean getDuckInput()
-		{
-			if (getInput().equals("d"))
-				return true;
-			else
-				return false;
-		}*/
-		
-		
-		public void jump()
-		{
-			int originalHeight = 0;
-			double maxHeight = 100.0;
-			double jumpY = getY();
-			
-			while (jumpY != maxHeight) {
-				jumpY = getY() + 0.01;
-			}
+import javafx.scene.layout.Pane;
+
+public class Player extends GameObject 
+{
 	
-			while (jumpY != originalHeight) {
-				jumpY = getY() - 0.01;
+	//JUMP METHOD
+	//Makes player jump.
+	public void jump()
+	{
+		int maxHeight = 0;
+		int originalHeight = 120;
+		int currentHeight = getY();
+		
+		while(currentHeight > maxHeight) {
+			setY(currentHeight--);
+			}
+		while(currentHeight < originalHeight) {
+			setY(currentHeight ++);
 			}
 		}
+	
+	//CHECK COLLISION METHOD
+	//Parameters:
+	// -World in which to check for a collision between the player and the obstacles.
+	//Returns:
+	//	-Boolean: True if there has been a collision between the player and the obstacles, false otherwise.
+	public boolean checkCollision(World world)
+	{
+		for (GameObject g: world.getGame())
+		{
+			if (g instanceof Obstacle && g != null)
+			{
+				if(g.getSprite().hitbox().intersects(world.getGame().get(0).getSprite().hitbox()))
+						{
+						return true;
+						}
+			}
 
-		//Getter function for x coordinate
-		public int getX() {
-			return X;
 		}
-
-		//Setter function for x coordinate
-		public void setX(int x) {
-			X = x;
-		}
+		return false;
 		
-		//This is the getter function for the Y coordinate
-		public int getY() {
-			return Y;
-		}
+	}
 
-		//This is the setter function for the y coordinate 
-		public void setY(int y) {
-			Y = y;
-		}
+	
+	//Override of getLayer() and getSprite() Methods from abstract parent class Game Object
+	@Override
+	public Pane getLayer() {
+		return null;
+	}
 
-		//This is the getter function for the input 
-		public String getInput() {
-			return Input;
-		}
-
-		//This is the setter for the input 
-		//When implemented with FX this will be a keylistener input
-		public void setInput(String input) {
-			this.Input = input;
-		}
-
+	@Override
+	public Sprite getSprite() {
+		return null;
+	}
 }

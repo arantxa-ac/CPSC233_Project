@@ -1,29 +1,36 @@
+import java.awt.Rectangle;
 import java.util.Random;
-public class Obstacle {
-	//default Obstacles and rate
-	private static String Obstacle = "|";
-	//1 to 5 chance of generating an obstacle
-	private static int rate = 5;
+
+import javafx.scene.layout.Pane;
+
+public class Obstacle extends GameObject {
 	
-	//constructors to change defalt values
-	public Obstacle(int rate, String Obstacle) {
-		this.rate = rate;
-		this.Obstacle = Obstacle;
-	}
+	//Instance variables for Obstacle.
+	private int rate;
+	private Rectangle hitbox;
 	
-	//Generate random Obstacles by the rate
-	//will retrun either empty or an Obstacles
-	public static String getNewObstacles() {
-		int Ob;
+	//GENERATE METHOD
+		//Returns:
+		//	-Obstacle that is generated randomly.
+	public Obstacle generate()
+	{
 		Random rand = new Random();
-		Ob = rand.nextInt(rate);
-		if (Ob == 0) {
-			return Obstacle;
-		}
-		else{
-			return "_";
-		}
-		
+		int generate = rand.nextInt(this.rate);
+		if(generate == 0)
+			return new Obstacle();
+		else
+			return null;
+	}
+
+	//Override of getLayer() and getSprite() Methods from abstract parent class Game Object
+	@Override
+	public Pane getLayer() {
+		return null;
+	}
+
+	@Override
+	public Sprite getSprite() {
+		return null;
 	}
 
 }
