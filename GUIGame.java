@@ -1,5 +1,3 @@
-
-import java.awt.Label;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
@@ -18,27 +16,34 @@ public class GUIGame extends Application implements KeyListener {
 
 	static Scene scene;
 	
+	//Override of start method.
 	@Override
 	public void start(Stage primaryStage) {		
 		try {
+			//Create root Pane, layers to insert every Game Object, and world to store each Game Object.
 			 Pane root = new Pane();
 			 Pane layers = new Pane();
 			 PlayerGUI player = new PlayerGUI();
 			 World world = new World();
-			 world.getGame().set(0, player);
+			 ArrayList<GameObject> obj = world.getGame();
+			 obj.set(0, player);
 		 
-				while(!player.checkCollision())
-				{
+			 
+			 //Loop to update the world while there hasn't been a collision.
+//				while(!player.checkCollision(world))
+//				{
 					World.update();
+					root.getChildren().clear();
+					layers.getChildren().clear(); 
 					root.getChildren().add(renderGUI(world, layers, player));
-				}
+//				}
 			 
 					
 		//SCENE
 			scene = new Scene(root,DataProvider.getWINDOW_WIDTH(),DataProvider.getWINDOW_HEIGHT());
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
-		//EVENT HANDLER
+		//EVENT HANDLER: If up arrow key is pressed then player must jump.
 			 scene.setOnKeyPressed(new EventHandler<KeyEvent>()
 				{
 					@Override
@@ -64,51 +69,47 @@ public class GUIGame extends Application implements KeyListener {
 		}
 	}
 	
+	//RENDER_GUI METHOD	
+	//Parameters:
+	//	-World from which to obtain the Game Objects.
+	//	-Pane to which the layers that contain each Game Object will be added.
+	//	-PlayerGUI that will be added to the Pane.
+	//Returns:
+	//	-Pane to which each Game Object has been added.
 	public Pane renderGUI(World w, Pane toAdd, PlayerGUI player)
-	{
-//		w.getGame().forEach((object)-> toAdd.getChildren().add(object.getLayer()));
-		for(GameObject object : w.getGame()) {
-			toAdd.getChildren().add(object.getLayer());
+	{		
+		for(int i = 0; i < w.getGame().size(); i++) {
+			if(w.getGame().get(i) != null && w.getGame().get(i).getLayer() != null)
+				toAdd.getChildren().add(w.getGame().get(i).getLayer());
 		}
 		return toAdd;
 	}
 	
+	
+	//MAIN METHOD
+	//Launches the GUIGame Application
 	public static void main(String[] args) {
 		launch();		
 	}
-	
-	public void main() {
-		World w = new World();
-		ArrayList<GameObject> game = w.getGame();
-		game.set(0, new PlayerGUI());
-		
-		PlayerGUI p = new PlayerGUI();
-		while(!p.checkCollision()) {
-			w.update();
-			renderGUI(w, p.getLayer(), p);
-		}
-	}
 
+	//GETTER FOR SCENE
+	//Returns:
+	//	-Scene shown on GUIGame stage
 	public static Scene getScene() 
 	{
 		return scene;
 	}
 
+	//OVERRIDE FOR KEY LISTENER METHODS
 	@Override
 	public void keyTyped(java.awt.event.KeyEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void keyPressed(java.awt.event.KeyEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void keyReleased(java.awt.event.KeyEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 }
