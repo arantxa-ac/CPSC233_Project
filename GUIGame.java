@@ -35,7 +35,7 @@ public class GUIGame extends Application implements KeyListener {
 					World.update();
 					root.getChildren().clear();
 					layers.getChildren().clear(); 
-					root.getChildren().add(renderGUI(world, layers, player));
+					root.getChildren().add(renderGUI(world, layers));
 //				}
 			 
 					
@@ -76,7 +76,7 @@ public class GUIGame extends Application implements KeyListener {
 	//	-PlayerGUI that will be added to the Pane.
 	//Returns:
 	//	-Pane to which each Game Object has been added.
-	public Pane renderGUI(World w, Pane toAdd, PlayerGUI player)
+	public Pane renderGUI(World w, Pane toAdd)
 	{		
 		for(int i = 0; i < w.getGame().size(); i++) {
 			if(w.getGame().get(i) != null && w.getGame().get(i).getLayer() != null)
