@@ -32,7 +32,7 @@ public class GUIGame extends Application implements KeyListener {
 			 //Loop to update the world while there hasn't been a collision.
 //				while(!player.checkCollision(world))
 //				{
-					World.update();
+					world.update();
 					root.getChildren().clear();
 					layers.getChildren().clear(); 
 					root.getChildren().add(renderGUI(world, layers));
