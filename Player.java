@@ -1,24 +1,36 @@
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javafx.scene.layout.Pane;
 
 public class Player extends GameObject 
 {
-	
+double velocityinital = 125;	
 	//JUMP METHOD
 	//Makes player jump.
 	public void jump()
 	{
-		int maxHeight = 0;
-		int originalHeight = 120;
-		int currentHeight = getY();
+		double acceleration = DataProvider.getACCELERATION();
+		double velocityfinal = DataProvider.getINITIAL_VELOCITY();
+		Timer timer = new Timer();
+		TimerTask task = new TimerTask() {
+			// Increment for each second that passed and print it to console
+			public void run() {
+				if (velocityinital >=0)
+				setY((int) (75+velocityinital));
+				else if (velocityinital <0)
+				setY((int) (75-velocityinital));
+				velocityinital = velocityinital - acceleration;
+				if (velocityinital <= (velocityfinal))
+						{
+				cancel();
+						}
+				}
+			};
 		
-		while(currentHeight > maxHeight) {
-			setY(currentHeight--);
-			}
-		while(currentHeight < originalHeight) {
-			setY(currentHeight ++);
-			}
-		}
-	
+			timer.scheduleAtFixedRate(task, 0, 2);
+
+	}
 	//CHECK COLLISION METHOD
 	//Parameters:
 	// -World in which to check for a collision between the player and the obstacles.
