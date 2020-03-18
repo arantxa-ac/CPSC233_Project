@@ -47,7 +47,7 @@ public class PlayerGUI extends Player
 	//Returns:
 	//	-Y coordinate in integer form.
 	public int getY() {
-		return Y;
+		return (int) imageView.getY();
 	}
 
 	//SETTER FOR Y COORDINATE OF IMAGEVIEW
