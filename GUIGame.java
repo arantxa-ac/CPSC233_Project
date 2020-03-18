@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -32,10 +34,11 @@ public class GUIGame extends Application implements KeyListener {
 			 //Loop to update the world while there hasn't been a collision.
 //				while(!player.checkCollision(world))
 //				{
-					world.update();
+					World.update();
 					root.getChildren().clear();
 					layers.getChildren().clear(); 
 					root.getChildren().add(renderGUI(world, layers));
+			
 //				}
 			 
 					
@@ -49,10 +52,13 @@ public class GUIGame extends Application implements KeyListener {
 					@Override
 					public void handle(KeyEvent event)
 					{
-						if (event.getCode() == KeyCode.UP)
+						if (event.getCode() == KeyCode.UP && player.getY() == 200 )
 						{
-							player.jump();
 							
+							player.jump();
+							player.setY(200);
+							player.velocityinital = 125;
+						
 						}
 					}
 				});
@@ -78,9 +84,8 @@ public class GUIGame extends Application implements KeyListener {
 	//	-Pane to which each Game Object has been added.
 	public Pane renderGUI(World w, Pane toAdd)
 	{		
-		for(int i = 0; i < w.getGame().size(); i++) {
-			if(w.getGame().get(i) != null && w.getGame().get(i).getLayer() != null)
-				toAdd.getChildren().add(w.getGame().get(i).getLayer());
+		for(GameObject object : w.getGame()) {
+			toAdd.getChildren().add(object.getLayer());
 		}
 		return toAdd;
 	}
