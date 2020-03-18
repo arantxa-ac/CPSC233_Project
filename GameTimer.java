@@ -3,7 +3,6 @@ import java.awt.Label;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
 public class GameTimer {
 	private int secondsPassed = 0;
 
@@ -25,6 +24,11 @@ public class GameTimer {
 	public void gameTimerLabel() {
 		Label timerLabel = new Label();
 		timerLabel.setFont(new Font("arial", Font.PLAIN, 14));
+	}
+	
+	public int getTime()
+	{
+	return secondsPassed;
 	}
 	
 	// Start of the timer
