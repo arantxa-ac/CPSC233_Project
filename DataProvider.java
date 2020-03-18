@@ -24,10 +24,10 @@ public class DataProvider {
 	private static String TRIPLE_SMALL_CACTUS = "Sprites/triple_small_cactus.png";
 	
 	
-	   /* private static double INITIAL_VELOCITY = 5;
-	    //Acceleration acts as a constant simulating gravity for the jump physics
-	    private static double ACCELERATION = 2;
-	    private static int RUNNING_ANIM_SPEED = 10 ;*/
+	  private static double INITIAL_VELOCITY = -125;
+	  //Acceleration acts as a constant simulating gravity for the jump physics
+	  private static double ACCELERATION = 1;
+	  private static int RUNNING_ANIM_SPEED = 10 ;
 	 
 	
 	public static int getWINDOW_WIDTH() {
@@ -67,12 +67,12 @@ public class DataProvider {
 		return TRIPLE_SMALL_CACTUS;
 	}
 	
-	/* static double getINITIAL_VELOCITY() {
+	static double getINITIAL_VELOCITY() {
 		return INITIAL_VELOCITY;
 	}
 	
 	public static double getACCELERATION() {
 		return ACCELERATION;
-	}*/
 	
+}
 }
