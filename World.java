@@ -8,12 +8,7 @@ public class World {
 		
 		game.add(new Player());
 		game.add(new GroundGUI());
-		
-		game.add(new ObstacleGUI().generate());
-		for (int n = 0; n < game.size(); n++) {
-			System.out.print(game.get(n));
-		}
-		System.out.print("\n");
+		game.add(new ObstacleGUI());
 	}
 	
 	// Update the world every frame
@@ -21,7 +16,7 @@ public class World {
 		// Create a new ArrayList
 	ArrayList<GameObject> preWorld = new ArrayList<GameObject>();
 		// Add each object from the game ArrayList into the new ArrayList
-		for (int n = 2; n < game.size(); n++) {
+		for (int n = 0; n < game.size(); n++) {
 			preWorld.add(game.get(n));
 		}
 		// Replace the object in the last index to update the world
