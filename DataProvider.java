@@ -1,34 +1,54 @@
+
+/**
+ * 
+ * A class which contains all the constants needed for the program to run
+ * It initializes each constant and each variable has a getter method to return the value of the constant
+ *
+ */
+
+
 public class DataProvider {
+	
+	/**
+	 * Dimensions needed for the GUI window
+	 */
 	private static int WINDOW_WIDTH = 600;
 	private static int WINDOW_HEIGHT = 400;
 	
-	//private static int FRAME_RATE = 2; ??
-	//private static int NUMBER_OF_OBSTACLES = 2; ??
-	
-	//will be millis, used for Duration in SPrite Animation
+	/**
+	 * Returns this speed in milliseconds for the animation cycle
+	 */
 	private static int GROUND_SPEED = 2000;
 	//Image 
-	private static String GROUND_IMAGE = "Sprites/ground.png";
-	//for SpriteAnimation: count, columns, offset_x, offset_y, width, height
+	private static String GROUND_IMAGE = "ground.png";
+	/**
+	 * Settings used for the SpriteAnimation, its parameters being: 
+	 * Count
+	 * Columns
+	 * Offset_x
+	 * Offset_y
+	 * Width 
+	 * Height
+	 */
 	private static int[] GROUND_SETTINGS = {2,2,0,0,600,14};
 	
 	private static int PLAYER_SPEED = 400;
-	private static String PLAYER_IMAGE = "Sprites/trexPlayer.png";
+	private static String PLAYER_IMAGE = "trexPlayer.png";
 	private static int[] PLAYER_RUN_SETTINGS = {2,2,176, 0, 88, 94};
 	private static int[] PLAYER_STILL_SETTINGS = {1, 1, 0, 0, 88, 94};
 	
-	//No need for single_cactus settings, just position the png at a x/y in the window
-	// cacti aren't animated
-	private static String SINGLE_CACTUS = "Sprites/single_big_cactus.png";
-	private static String TRIPLE_MULTI_CACTUS = "Sprites/triple_multi_cactus.png";
-	private static String TRIPLE_SMALL_CACTUS = "Sprites/triple_small_cactus.png";
+	/**
+	 * Note that cacti are not animated but do have multiple possible images
+	 */
+	private static String SINGLE_CACTUS = "single_big_cactus.png";
+	private static String TRIPLE_MULTI_CACTUS = "triple_multi_cactus.png";
+	private static String TRIPLE_SMALL_CACTUS = "triple_small_cactus.png";
 	
 	
-	  private static double INITIAL_VELOCITY = -125;
+	  private static double INITIAL_VELOCITY = 125;
 	  //Acceleration acts as a constant simulating gravity for the jump physics
 	  private static double ACCELERATION = 1;
-	  private static int RUNNING_ANIM_SPEED = 10 ;
-	 
+	  
 	
 	public static int getWINDOW_WIDTH() {
 		return WINDOW_WIDTH;
