@@ -6,7 +6,9 @@ public class TextObstacle extends Obstacle{
 	//hitbox:rectangle
 	private static String Obstacle = "|";
 	private static String Ground = "_";
-	//1 to 5 chance of generating an obstacle
+	/**
+	 *1 to 5 chance of generating an obstacle
+	 */
 	private static int rate = 5;
 	
 	public static String getNewObstacles() {
