@@ -1,4 +1,3 @@
-import java.awt.Rectangle;
 import java.util.Random;
 
 import javafx.scene.layout.Pane;
@@ -6,8 +5,18 @@ import javafx.scene.layout.Pane;
 public class Obstacle extends GameObject {
 	
 	//Instance variables for Obstacle.
+	int HITBOXSIZE = 95;
+	int X = 300;
+	int Y = 200;
 	private int rate;
-	private Rectangle hitbox;
+	private Sprite obstacleSprite= new Sprite(HITBOXSIZE,X,Y);
+	
+	public Obstacle()
+	{
+		setX(X);
+		setY(Y);
+	}
+	
 	
 	//GENERATE METHOD
 		//Returns:
@@ -30,7 +39,7 @@ public class Obstacle extends GameObject {
 
 	@Override
 	public Sprite getSprite() {
-		return null;
+		return obstacleSprite;
 	}
 
 }
