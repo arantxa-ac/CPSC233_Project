@@ -11,7 +11,7 @@ public class Obstacle extends GameObject {
 	 */
 	int X = 300;
 	int Y = 200;
-	private int rate = 2;
+	private int rate = 5;
 	private Sprite obstacleSprite= new Sprite(HITBOXSIZE,X,Y);
 	
 	public Obstacle()
