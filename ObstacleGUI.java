@@ -7,9 +7,6 @@ import javafx.util.Duration;
 public class ObstacleGUI extends Obstacle{
 
 	//Instance Variables for ObstacleGUI
-	int HITBOXSIZE = 95;
-	int X = 300;
-	int Y = 200;
 	Image Obstacle_image;
 	ImageView imageView = new ImageView();
 	int count;
@@ -19,7 +16,6 @@ public class ObstacleGUI extends Obstacle{
 	int width;
 	int height;
 	Duration duration;
-	Sprite obstacleSprite= new Sprite(HITBOXSIZE,X,Y);
 	private static int rate = 1;
 	
 
@@ -30,9 +26,9 @@ public class ObstacleGUI extends Obstacle{
 	public Pane getLayer()
 	{
 		Pane obstaclePane = new Pane();
-		obstacleSprite.hitbox();
-		imageView.setX(X);
-		imageView.setY(Y);
+		getSprite().hitbox();
+		imageView.setX(getX());
+		imageView.setY(getY());
 		obstaclePane.getChildren().add(imageView);
 		return obstaclePane;
 	}
