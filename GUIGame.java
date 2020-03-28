@@ -18,7 +18,9 @@ public class GUIGame extends Application implements KeyListener {
 
 	static Scene scene;
 	
-	//Override of start method.
+	/**
+	 * Override of the start method
+	 */
 	@Override
 	public void start(Stage primaryStage) {		
 		try {
@@ -42,11 +44,16 @@ public class GUIGame extends Application implements KeyListener {
 //				}
 			 
 					
-		//SCENE
+		/**
+		 * SCENE
+		 */
 			scene = new Scene(root,DataProvider.getWINDOW_WIDTH(),DataProvider.getWINDOW_HEIGHT());
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
-		//EVENT HANDLER: If up arrow key is pressed then player must jump.
+		/**
+		 * EVENT HANDLER:
+		 * If either the up-arrow key or space bar is clicked, then the player jumps
+		 */
 			 scene.setOnKeyPressed(new EventHandler<KeyEvent>()
 				{
 					@Override
@@ -62,10 +69,16 @@ public class GUIGame extends Application implements KeyListener {
 						}
 					}
 				});
-		//STAGE
-			//Give the stage a title.
+		/**
+		 * STAGE
+		 */
+			/**
+			 * Give the stage a title
+			 */
 			primaryStage.setTitle("T-Rex Run");
-			//Set the scene on primary stage and show stage.
+			/**
+			 * Set the scene on the primary stage and show the stage
+			 */
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.show();
@@ -75,13 +88,13 @@ public class GUIGame extends Application implements KeyListener {
 		}
 	}
 	
-	//RENDER_GUI METHOD	
-	//Parameters:
-	//	-World from which to obtain the Game Objects.
-	//	-Pane to which the layers that contain each Game Object will be added.
-	//	-PlayerGUI that will be added to the Pane.
-	//Returns:
-	//	-Pane to which each Game Object has been added.
+
+	/**
+	 * RENDER_GUI METHOD
+	 * @param World from which to obtain the Game Objects.
+	 * @param Pane to which the layers that contain each Game Object will be added.
+	 * @return -Pane to which each Game Object has been added.
+	 */
 	public Pane renderGUI(World w, Pane toAdd)
 	{		
 		for(GameObject object : w.getGame()) {
@@ -90,22 +103,27 @@ public class GUIGame extends Application implements KeyListener {
 		return toAdd;
 	}
 	
-	
-	//MAIN METHOD
-	//Launches the GUIGame Application
+
+	/**
+	 * MAIN METHOD
+	 * Launches the GUIGame Application
+	 */
 	public static void main(String[] args) {
 		launch();		
 	}
 
-	//GETTER FOR SCENE
-	//Returns:
-	//	-Scene shown on GUIGame stage
+	/**
+	 * GETTER FOR SCENE
+	 * @return scene shown on GUIGame stage
+	 */
 	public static Scene getScene() 
 	{
 		return scene;
 	}
 
-	//OVERRIDE FOR KEY LISTENER METHODS
+	/**
+	 * OVERRIDE FOR KEY LISTENER METHODS
+	 */
 	@Override
 	public void keyTyped(java.awt.event.KeyEvent e) {
 	}
