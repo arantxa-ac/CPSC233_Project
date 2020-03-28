@@ -18,18 +18,19 @@ public class GroundGUI extends GameObject{
     private final int HEIGHT = DataProvider.getGROUND_SETTINGS()[5];
     private final int MILLISDURATION = DataProvider.getGROUND_SPEED();
     private ImageView imageView;
+
     
-	//ANIMATE METHOD
-	//Parameters:
-	//	-Image of the ground.
-	//	-Duration used for sprite animation.
-	//	-Count used for sprite animation.
-	//	-Columns used for sprite animation.
-	//	-Offset in X used for sprite animation.
-	//	-Offset in Y used for sprite animation.
-	//	-Width used for sprite animation.
-	// 	-Height used for sprite animation.
-	//This method animates the ground image.
+    /**
+     * ANIMATE METHOD
+     * @param Image of the ground
+     * @param duration used for the sprite animation for each frame
+     * @param count used for sprite animation
+     * @param columns used for sprite animation
+     * @param offset in X used for sprite animation
+     * @param offset in y used for sprite animation
+     * @param width used for sprite animation
+     * @param height used for sprite animation
+     */
     public void animate() {
 		imageView = new ImageView(IMAGE);
 		imageView.setViewport(new Rectangle2D(OFFSET_X, OFFSET_Y, WIDTH, HEIGHT));
@@ -38,9 +39,10 @@ public class GroundGUI extends GameObject{
 	     animation.play();
 	}
     
-	//GET LAYER METHOD
-	//Returns:
-	//	-Pane that contains imageView with animated ground in the specified coordinates.
+    /**
+     * GET LAYER METHOD
+     * @return Pane that contains imageView with animated ground in the specified coordinates
+     */
 	public Pane getLayer()
 	{
 		Pane groundPane = new Pane();
@@ -50,10 +52,11 @@ public class GroundGUI extends GameObject{
 		groundPane.getChildren().add(imageView);
 		return groundPane;
 	}
-
-	//GETTER FOR SPRITE
-	//Returns:
-	//	-Ground sprite which is null since it is not needed for collision detection.
+	
+	/**
+	 * GETTER FOR SPRITE
+	 * @return ground sprite which is null since it is not needed for collision detection
+	 */
 	@Override
 	public Sprite getSprite() {
 		return null;
