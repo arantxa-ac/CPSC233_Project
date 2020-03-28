@@ -2,7 +2,9 @@ import java.awt.Rectangle;
 
 public class Sprite  {
 	private int hitboxSize;
-	//These x and y locations will be pixels
+	/**
+	 * These x and y locations will be pixel locations on the GUI
+	 */
 	private int x;
 	private int y;
 	
@@ -13,7 +15,10 @@ public class Sprite  {
 		this.y=y;
 	}
 	
-	//Generates a hitbox around each sprite for the player class to later check for collision detection. 
+	/**
+	 * Generates a hitbox around each sprite for the player class to later check for collision detection. 
+	 * @return
+	 */
 	public Rectangle hitbox() {
 		return new Rectangle(this.x, this.y, hitboxSize, hitboxSize);
 	}
