@@ -19,9 +19,11 @@ public class ObstacleGUI extends Obstacle{
 	private static int rate = 1;
 	
 
-	//GET LAYER METHOD
-		//Returns:
-		//	-Pane that contains imageView with object in the specified coordinates.
+	/**
+	 * GET LAYER METHOD
+	 * Overrides getLayer() methods in GameObject and Obstacle
+	 * @return Pane that contains imageView with object in the specified coordinates
+	 */
 	@Override
 	public Pane getLayer()
 	{
@@ -33,9 +35,10 @@ public class ObstacleGUI extends Obstacle{
 		return obstaclePane;
 	}
 	
-	//GENERATE METHOD
-	//Returns:
-	//	-ObstacleGUI that is generated ramdomly.
+	/**
+	 * GENERATE METHOD
+	 * @return ObstacleGUI or not
+	 */
 	public ObstacleGUI generate()
 	{
 		Random rand = new Random();
@@ -45,9 +48,11 @@ public class ObstacleGUI extends Obstacle{
 		return null;
 	}
 	
-	//GETTER FOR OBSTACLE_GUI
-		//Returns:
-		//	-ObstacleGUI
+
+	/**
+	 * GETTER FOR OBSTACLE_GUI
+	 * @return ObstacleGUI
+	 */
 	public ObstacleGUI getObstacleGUI()
 	{
 		return this;
