@@ -6,9 +6,12 @@ public class Obstacle extends GameObject {
 	
 	//Instance variables for Obstacle.
 	int HITBOXSIZE = 95;
+	/**
+	 * Always spawn obstacles at the far right of the screen
+	 */
 	int X = 300;
 	int Y = 200;
-	private int rate;
+	private int rate = 2;
 	private Sprite obstacleSprite= new Sprite(HITBOXSIZE,X,Y);
 	
 	public Obstacle()
@@ -18,9 +21,10 @@ public class Obstacle extends GameObject {
 	}
 	
 	
-	//GENERATE METHOD
-		//Returns:
-		//	-Obstacle that is generated randomly.
+	/**
+	 * GENERATE METHOD
+	 * @return an obstacle that is generated randomly or not
+	 */
 	public Obstacle generate()
 	{
 		Random rand = new Random();
@@ -31,7 +35,9 @@ public class Obstacle extends GameObject {
 			return null;
 	}
 
-	//Override of getLayer() and getSprite() Methods from abstract parent class Game Object
+	/**
+	 * Override of getLayer() and getSprite() methods from abstract parent class GameObject
+	 */
 	@Override
 	public Pane getLayer() {
 		return null;
