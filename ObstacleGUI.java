@@ -1,4 +1,6 @@
 import java.util.Random;
+
+import javafx.animation.TranslateTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -11,10 +13,12 @@ public class ObstacleGUI extends Obstacle{
 	ImageView imageView = new ImageView(Obstacle_image);
 	Duration duration;
 	private static int rate = 1;
-
-	//GET LAYER METHOD
-		//Returns:
-		//	-Pane that contains imageView with object in the specified coordinates.
+	
+	/**
+	 * GET LAYER METHOD
+	 * Overrides original abstract method in GameObject
+	 * @returns a Pane that contains imageview with object in the specified coordinates
+	 */
 	@Override
 	public Pane getLayer()
 	{
@@ -23,16 +27,20 @@ public class ObstacleGUI extends Obstacle{
 		imageView.setX(getX());
 		imageView.setY(getY());
 		obstaclePane.getChildren().add(imageView);
-		TranslateTransition move = new TranslateTransition(Duration.millis(2500),obstaclePane);
+		TranslateTransition move = new TranslateTransition(Duration.millis(2500), obstaclePane);
+		/**
+		 * Moves the obstacle down the pane towards the player
+		 */
 		move.setByX(-600);
 		move.setByY(0);
-		move.play();	
+		move.play();
 		return obstaclePane;
 	}
 	
-	//GENERATE METHOD
-	//Returns:
-	//	-ObstacleGUI that is generated randomly.
+	/**
+	 * GENERATE METHOD:
+	 * @return Either generate an ObstacleGUI class randomly or nothing
+	 */
 	public ObstacleGUI generate()
 	{
 		Random rand = new Random();
@@ -42,9 +50,10 @@ public class ObstacleGUI extends Obstacle{
 		return null;
 	}
 	
-	//GETTER FOR OBSTACLE_GUI
-		//Returns:
-		//	-ObstacleGUI
+	/**
+	 * GETTER FOR OBSTACLEGUI
+	 * @return ObstacleGUI
+	 */
 	public ObstacleGUI getObstacleGUI()
 	{
 		return this;
