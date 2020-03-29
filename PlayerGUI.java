@@ -6,7 +6,9 @@ import javafx.util.Duration;
 
 public class PlayerGUI extends Player
 {
-	//Instance Variables for PlayerGUI
+	/**
+	 * Instance Variables for PlayerGUI
+	 */
 	int HITBOXSIZE = 95;
 	int X = 0;
 	int Y = 200;
@@ -30,9 +32,11 @@ public class PlayerGUI extends Player
 	Pane playerPane = new Pane();
 	
 	
-	//GET LAYER METHOD
-	//Returns:
-	//	-Pane that contains imageView with animated dinosaur in the specified coordinates.
+
+	/**
+	 * GETLAYER METHOD:
+	 * @return Pane that contains imageView with animated dinosaur in the specified coordinates
+	 */
 	public Pane getLayer()
 	{
 		playerSprite.hitbox();
@@ -43,38 +47,43 @@ public class PlayerGUI extends Player
 		return playerPane;
 	}
 
-	//GETTER FOR Y COORDINATE
-	//Returns:
-	//	-Y coordinate in integer form.
+	/**
+	 * GETTER FOR Y-COORDINATE
+	 * @return y-coordinate on the Cartesian plane as an int
+	 */
 	public int getY() {
 		return (int) imageView.getY();
 	}
 
-	//SETTER FOR Y COORDINATE OF IMAGEVIEW
-	//Parameters:
-	//	-y coordinate value to change to in integer form.
+	/**
+	 * SETTER FOR Y-COORDINATE 
+	 * @param y-coordinate Cartesian int value to change the imageView
+	 */
 	public void setY(int y) {
 		imageView.setY(y);
 	}
-
-	//GETTER FOR X COORDINATE
-		//Returns:
-		//	-X coordinate in integer form.
+	
+	/**
+	 * GETTER FOR X-COORDINATE
+	 * Note: don't need a setter for x as the players x position should never change
+	 * @return x-coordinate on the Cartesian plane as an int
+	 */
 	public int getX() {
 		return X;
 	}
-
-	//ANIMATE METHOD
-	//Parameters:
-	//	-Image of the player.
-	//	-Duration used for sprite animation.
-	//	-Count used for sprite animation.
-	//	-Columns used for sprite animation.
-	//	-Offset in X used for sprite animation.
-	//	-Offset in Y used for sprite animation.
-	//	-Width used for sprite animation.
-	// 	-Height used for sprite animation.
-	//This method animates the dinosaur image.
+	
+	/**
+	 * ANIMATE METHOD
+	 * Animates the dinosaur sprite
+	 * @param Image of the player.
+	 * @param Duration used for sprite animation.
+	 * @param Count used for sprite animation.
+	 * @param Columns used for sprite animation.
+	 * @param Offset in X used for sprite animation.
+	 * @param Offset in Y used for sprite animation.
+	 * @param Width used for sprite animation.
+	 * @param Height used for sprite animation
+	 */
 	public void animate(Image image, Duration duration, int count, int columns, int offset_X, int offset_Y, int width, int height) {
 		imageView = new ImageView(image);
 		imageView.setViewport(new Rectangle2D(offset_X, offset_Y, width, height));
@@ -83,17 +92,19 @@ public class PlayerGUI extends Player
 	     animation.play();
 	}
 	
-	//GETTER FOR PLAYERGUI
-	//Returns:
-	//	-PlayerGUI
+	/**
+	 * GETTER FOR PLAYER GUI
+	 * @return playerGUI
+	 */
 	public PlayerGUI getPlayerGUI()
 	{
 		return this;
 	}
 
-	//GETTER FOR SPRITE
-	//Returns:
-	//	-Player sprite.
+	/**
+	 * GETTER FOR SPRITE
+	 * @return playerGUI's sprite
+	 */
 	@Override
 	public Sprite getSprite() {
 		return playerSprite;
