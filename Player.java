@@ -17,9 +17,9 @@ public class Player extends GameObject
 			*/
 			public void run() {
 				if (velocityFinal >=0)
-					setY((int) (75+velocityFinal));
+					setY((int) (DataProvider.getJUMPCONSTANT()+velocityFinal));
 				else if (velocityFinal <0)
-					setY((int) (75-velocityFinal));
+					setY((int) (DataProvider.getJUMPCONSTANT()-velocityFinal));
 					
 				velocityFinal = velocityFinal - acceleration;
 				
