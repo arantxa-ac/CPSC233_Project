@@ -23,6 +23,10 @@ public class ObstacleGUI extends Obstacle{
 		imageView.setX(getX());
 		imageView.setY(getY());
 		obstaclePane.getChildren().add(imageView);
+		TranslateTransition move = new TranslateTransition(Duration.millis(2500),obstaclePane);
+		move.setByX(-600);
+		move.setByY(0);
+		move.play();	
 		return obstaclePane;
 	}
 	
