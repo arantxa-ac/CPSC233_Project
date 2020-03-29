@@ -9,7 +9,7 @@ public class Player extends GameObject
 	public void jump()
 	{
 		double acceleration = DataProvider.getACCELERATION();
-		double velocityfinal = DataProvider.getINITIAL_VELOCITY();
+		double velocityfinal = DataProvider.getINITIAL_VELOCITY()*-1;
 		Timer timer = new Timer();
 		TimerTask task = new TimerTask() {
 			/**
