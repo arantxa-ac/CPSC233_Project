@@ -46,8 +46,11 @@ public class DataProvider {
 	
 	
 	  private static double INITIAL_VELOCITY = -125;
-	  //Acceleration acts as a constant simulating gravity for the jump physics
+	  /**
+	   *Acceleration acts as a constant simulating gravity for the jump physics
+	   */
 	  private static double ACCELERATION = 1;
+	  private static double
 	  
 	
 	public static int getWINDOW_WIDTH() {
