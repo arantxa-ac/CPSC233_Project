@@ -45,7 +45,7 @@ public class DataProvider {
 	private static String TRIPLE_SMALL_CACTUS = "triple_small_cactus.png";
 	
 	
-	  private static double INITIAL_VELOCITY = 125;
+	  private static double INITIAL_VELOCITY = -125;
 	  //Acceleration acts as a constant simulating gravity for the jump physics
 	  private static double ACCELERATION = 1;
 	  
