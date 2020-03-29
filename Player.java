@@ -5,30 +5,30 @@ import javafx.scene.layout.Pane;
 
 public class Player extends GameObject 
 {
-	double velocityInitial = DataProvider.getINITIAL_VELOCITY;	
+	double velocityFinal = DataProvider.getFINAL_VELOCITY;	
 	public void jump()
 	{
 		double acceleration = DataProvider.getACCELERATION();
-		double velocityfinal = DataProvider.getINITIAL_VELOCITY()*-1;
+		double velocityInitial = DataProvider.getINITIAL_VELOCITY();
 		Timer timer = new Timer();
 		TimerTask task = new TimerTask() {
 			/**
 			    Increment for each second that passed and print it to console
 			*/
 			public void run() {
-				if (velocityInitial >=0)
-					setY((int) (75+velocityInitial));
-				else if (velocityInitial <0)
-					setY((int) (75-velocityInitial));
+				if (velocityFinal >=0)
+					setY((int) (75+velocityFinal));
+				else if (velocityFinal <0)
+					setY((int) (75-velocityFinal));
 					
-				velocityInitial = velocityInitial - acceleration;
+				velocityFinal = velocityFinal - acceleration;
 				
-				if (velocityInitial <= (velocityFinal))
-						{
-				cancel();
-						}
+				if (velocityFinal <= (velocityInitial))
+				{
+					cancel();
 				}
-			};
+			}
+		};
 		
 			timer.scheduleAtFixedRate(task, 0, 2);
 
