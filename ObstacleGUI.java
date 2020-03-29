@@ -7,23 +7,14 @@ import javafx.util.Duration;
 public class ObstacleGUI extends Obstacle{
 
 	//Instance Variables for ObstacleGUI
-	Image Obstacle_image;
-	ImageView imageView = new ImageView();
-	int count;
-	int columns;
-	int offsetX;
-	int offsetY;
-	int width;
-	int height;
+	Image Obstacle_image = new Image(getClass().getResourceAsStream(DataProvider.getSINGLE_CACTUS()));
+	ImageView imageView = new ImageView(Obstacle_image);
 	Duration duration;
 	private static int rate = 1;
-	
 
-	/**
-	 * GET LAYER METHOD
-	 * Overrides getLayer() methods in GameObject and Obstacle
-	 * @return Pane that contains imageView with object in the specified coordinates
-	 */
+	//GET LAYER METHOD
+		//Returns:
+		//	-Pane that contains imageView with object in the specified coordinates.
 	@Override
 	public Pane getLayer()
 	{
@@ -35,10 +26,9 @@ public class ObstacleGUI extends Obstacle{
 		return obstaclePane;
 	}
 	
-	/**
-	 * GENERATE METHOD
-	 * @return ObstacleGUI or not
-	 */
+	//GENERATE METHOD
+	//Returns:
+	//	-ObstacleGUI that is generated randomly.
 	public ObstacleGUI generate()
 	{
 		Random rand = new Random();
@@ -48,14 +38,13 @@ public class ObstacleGUI extends Obstacle{
 		return null;
 	}
 	
-
-	/**
-	 * GETTER FOR OBSTACLE_GUI
-	 * @return ObstacleGUI
-	 */
+	//GETTER FOR OBSTACLE_GUI
+		//Returns:
+		//	-ObstacleGUI
 	public ObstacleGUI getObstacleGUI()
 	{
 		return this;
 	}
 
 }
+
