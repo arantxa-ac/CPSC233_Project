@@ -11,7 +11,7 @@ In order to run the program:
 4) Add Javafx inorder to run the animation in the game
 
 In order to play the game:
-1) The program will ask you to click anykey in order to initiate the game.
+1) The game will start automaticlly.
 2) In order to jump over obstacles click space key or upward key
 3) The player will keep running until hit by an obstacle
 4) if you hit an obstacle then the first player's game will be over and the second player's run will start.
