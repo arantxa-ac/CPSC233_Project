@@ -10,7 +10,7 @@ public class Obstacle extends GameObject {
 	 * Always spawn obstacles at the far right of the screen
 	 */
 	int X = 550;
-	int Y = 232;
+	int Y = 220;
 	private int rate = 5;
 	private Sprite obstacleSprite= new Sprite(HITBOXSIZE,X,Y);
 	
