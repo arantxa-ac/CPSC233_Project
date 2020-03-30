@@ -9,10 +9,24 @@ import javafx.util.Duration;
 public class ObstacleGUI extends Obstacle{
 
 	//Instance Variables for ObstacleGUI
-	Image Obstacle_image = new Image(getClass().getResourceAsStream(DataProvider.getSINGLE_CACTUS()));
-	ImageView imageView = new ImageView(Obstacle_image);
+	Image Obstacle_image;
+	ImageView imageView;
 	Duration duration;
-	private static int rate = 1;
+	private int rate = 5;
+	
+	/**
+	 * Array used to randomly choose from three different types of obstacle images
+	 */
+	Image [] imageList = {new Image(getClass().getResourceAsStream(DataProvider.getSINGLE_CACTUS())), 
+			new Image(getClass().getResourceAsStream(DataProvider.getTRIPLE_SMALL_CACTUS())),
+			new Image(getClass().getResourceAsStream(DataProvider.getTRIPLE_MULTI_CACTUS()))};
+	
+	public ObstacleGUI() {
+		Random rand = new Random();
+		int generate = rand.nextInt(3);
+		Obstacle_image = imageList[generate];
+		imageView = new ImageView(Obstacle_image);
+	}
 	
 	/**
 	 * GET LAYER METHOD
@@ -47,7 +61,7 @@ public class ObstacleGUI extends Obstacle{
 		int generate = rand.nextInt(rate);
 		if(generate == 0)
 			return new ObstacleGUI();
-		return null;
+		return this;
 	}
 	
 	/**
