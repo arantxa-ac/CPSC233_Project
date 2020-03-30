@@ -5,7 +5,7 @@ import javafx.scene.layout.Pane;
 
 public class Player extends GameObject 
 {
-	double velocityFinal = DataProvider.getFINAL_VELOCITY;	
+	double velocityFinal = DataProvider.getFINAL_VELOCITY();	
 	public void jump()
 	{
 		double acceleration = DataProvider.getACCELERATION();
