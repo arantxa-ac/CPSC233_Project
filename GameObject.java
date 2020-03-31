@@ -1,3 +1,4 @@
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 /**
@@ -50,4 +51,12 @@ public abstract class GameObject {
 	 *
 	 */
 	public abstract Sprite getSprite();
+	
+	/**
+	 * GETTER FOR IMAGEVIEW
+	 * @return ImageView for GUI objects
+	 */
+	public ImageView getImageView() {
+		return null;
+	}
 }
