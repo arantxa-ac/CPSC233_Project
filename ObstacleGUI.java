@@ -12,7 +12,14 @@ public class ObstacleGUI extends Obstacle{
 	Image Obstacle_image;
 	ImageView imageView;
 	Duration duration;
+	int HITBOXSIZE = 50;
+	/**
+	 * Always spawn obstacles at the far right of the screen
+	 */
+	int X = 550;
+	int Y = 220;
 	private int rate = 5;
+	private Sprite obstacleSprite= new Sprite(HITBOXSIZE,X,Y);
 	
 	/**
 	 * Array used to randomly choose from three different types of obstacle images
@@ -37,7 +44,6 @@ public class ObstacleGUI extends Obstacle{
 	public Pane getLayer()
 	{
 		Pane obstaclePane = new Pane();
-		getSprite().hitbox();
 		imageView.setX(getX());
 		imageView.setY(getY());
 		obstaclePane.getChildren().add(imageView);
@@ -49,6 +55,39 @@ public class ObstacleGUI extends Obstacle{
 		move.setByY(0);
 		move.play();
 		return obstaclePane;
+	}
+	
+	/**
+	 * GETTER FOR Y-COORDINATE
+	 * @return y-coordinate on the Cartesian plane as an int
+	 */
+	public int getY() {
+		return Y;
+	}
+
+	/**
+	 * SETTER FOR Y-COORDINATE 
+	 * @param y-coordinate Cartesian int value to change the imageView
+	 */
+	public void setY(int y) {
+		imageView.setY(y);
+	}
+	
+	/**
+	 * GETTER FOR X-COORDINATE
+	 * Note: don't need a setter for x as the players x position should never change
+	 * @return x-coordinate on the Cartesian plane as an int
+	 */
+	public int getX() {
+		return X;
+	}
+	
+	/**
+	 * SETTER FOR X-COORDINATE 
+	 * @param x-coordinate Cartesian int value to change the imageView
+	 */
+	public void setX(int x) {
+		imageView.setY(x);
 	}
 	
 	/**
@@ -73,5 +112,22 @@ public class ObstacleGUI extends Obstacle{
 		return this;
 	}
 
+	
+	/**
+	 * GETTER FOR SPRITE
+	 * @return Obstacle Sprite
+	 */
+	@Override
+	public Sprite getSprite() {
+		return obstacleSprite;
+	}
+	
+	/**
+	 * GETTER FOR IMAGEVIEW
+	 * @return Obstacle ImageView
+	 */
+	public ImageView getImageView() {
+		return imageView;
+	}
 }
 
