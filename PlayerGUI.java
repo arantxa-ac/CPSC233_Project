@@ -1,3 +1,4 @@
+import javafx.geometry.Bounds;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -92,6 +93,32 @@ public class PlayerGUI extends Player
 	     animation.play();
 	}
 	
+	
+	/**
+	 * CHECKCOLLISION METHOD:
+	 * @param world in which to check for a collision between players and obstacles
+	 * @return boolean if there has been a collision (true) and false otherwise
+	 */
+	public boolean checkCollision(World world)
+	{
+		
+		for (GameObject g: world.getGame())
+		{
+			if (g instanceof ObstacleGUI && g != null)
+			{
+				Bounds obstacleBounds = g.getImageView().localToScene(g.getImageView().getBoundsInLocal());
+				Bounds playerBounds = world.getGame().get(0).getImageView().localToScene(g.getImageView().getBoundsInLocal());
+				if(obstacleBounds.intersects(playerBounds))
+						{
+						return true;
+						}
+			}
+
+		}
+		return false;
+		
+	}
+	
 	/**
 	 * GETTER FOR PLAYER GUI
 	 * @return playerGUI
@@ -108,6 +135,14 @@ public class PlayerGUI extends Player
 	@Override
 	public Sprite getSprite() {
 		return playerSprite;
+	}
+	
+	/**
+	 * GETTER FOR IMAGEVIEW
+	 * @return Player ImageView
+	 */
+	public ImageView getImageView() {
+		return imageView;
 	}
 
 }
