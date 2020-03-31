@@ -45,7 +45,7 @@ public class Player extends GameObject
 		{
 			if (g instanceof Obstacle && g != null)
 			{
-				if(g.getSprite().hitbox().intersects(world.getGame().get(0).getSprite().hitbox()))
+				if(g.getSprite().hitbox().getBoundsInParent().intersects(world.getGame().get(0).getSprite().hitbox().getBoundsInParent()))
 						{
 						return true;
 						}
@@ -70,3 +70,4 @@ public class Player extends GameObject
 		return null;
 	}
 }
+
