@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -36,9 +34,9 @@ public class GUIGame extends Application implements KeyListener {
 			 //Loop to update the world while there hasn't been a collision.
 //				while(!player.checkCollision(world))
 //				{
-					World.update();
-					root.getChildren().clear();
-					layers.getChildren().clear(); 
+//					World.update();
+//					root.getChildren().clear();
+//					layers.getChildren().clear(); 
 					root.getChildren().add(renderGUI(world, layers));
 			
 //				}
@@ -65,7 +63,6 @@ public class GUIGame extends Application implements KeyListener {
 							player.jump();
 							player.setY(200);
 							player.velocityFinal = DataProvider.getFINAL_VELOCITY();
-						
 						}
 					}
 				});
@@ -82,6 +79,9 @@ public class GUIGame extends Application implements KeyListener {
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.show();
+			
+			if (player.checkCollision(world))
+				System.out.println(player.checkCollision(world));
 		} 
 		catch(Exception e) {
 			e.printStackTrace();
