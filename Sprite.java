@@ -1,4 +1,4 @@
-import java.awt.Rectangle;
+import javafx.scene.shape.Rectangle;
 
 public class Sprite  {
 	private int hitboxSize;
