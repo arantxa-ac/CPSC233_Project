@@ -2,24 +2,8 @@ import java.util.Random;
 
 import javafx.scene.layout.Pane;
 
-public class Obstacle extends GameObject {
-	
-	//Instance variables for Obstacle.
-	int HITBOXSIZE = 95;
-	/**
-	 * Always spawn obstacles at the far right of the screen
-	 */
-	int X = 550;
-	int Y = 220;
+public class Obstacle extends GameObject {	
 	private int rate = 5;
-	private Sprite obstacleSprite= new Sprite(HITBOXSIZE,X,Y);
-	
-	public Obstacle()
-	{
-		setX(X);
-		setY(Y);
-	}
-	
 	
 	/**
 	 * GENERATE METHOD
@@ -45,7 +29,7 @@ public class Obstacle extends GameObject {
 
 	@Override
 	public Sprite getSprite() {
-		return obstacleSprite;
+		return null;
 	}
 
 }
