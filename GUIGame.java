@@ -40,7 +40,17 @@ public class GUIGame extends Application implements KeyListener {
 					root.getChildren().add(renderGUI(world, layers));
 			
 //				}
-			 
+			 		Label scoreLabel = new Label();
+					root.getChildren().add(scoreLabel);
+					
+					ScoreManager game = new ScoreManager();
+					game.start();
+					Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.0001), ev -> {
+					scoreLabel.setText("Score: " + game.gettime());
+					
+					}));
+					timeline.setCycleCount(Animation.INDEFINITE);
+				    	timeline.play();
 					
 		/**
 		 * SCENE
