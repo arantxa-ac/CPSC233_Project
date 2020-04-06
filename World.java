@@ -10,7 +10,6 @@ public class World {
 		
 		game.add(new Player());
 		game.add(new GroundGUI());
-		game.add(new ObstacleGUI());
 	}
 	
 	/**
