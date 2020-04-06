@@ -100,7 +100,7 @@ public class ObstacleGUI extends Obstacle{
 		int generate = rand.nextInt(rate);
 		if(generate == 0)
 			return new ObstacleGUI();
-		return this;
+		return null;
 	}
 	
 	/**
