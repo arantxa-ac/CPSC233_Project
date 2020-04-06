@@ -1,4 +1,4 @@
-import javafx.scene.shape.Rectangle;
+import java.awt.Rectangle;
 
 public class Sprite  {
 	private int hitboxSize;
@@ -7,6 +7,7 @@ public class Sprite  {
 	 */
 	private int x;
 	private int y;
+	private Rectangle hitbox;
 	
 	//Constructor for the Sprite
 	public Sprite(int hitboxSize, int x, int y) {
@@ -17,9 +18,15 @@ public class Sprite  {
 	
 	/**
 	 * Generates a hitbox around each sprite for the player class to later check for collision detection. 
-	 * @return
+	 * @return a rectangle hitbox around each sprite for collision detection
 	 */
-	public Rectangle hitbox() {
-		return new Rectangle(this.x, this.y, hitboxSize, hitboxSize);
+	public Rectangle getHitbox() {
+		return hitbox;
 	}
+	
+	public void setHitbox(int obstacleX) {
+		hitbox = new Rectangle(obstacleX, this.y, hitboxSize, hitboxSize);
+		
+	}
+
 }
