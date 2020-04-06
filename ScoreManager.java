@@ -42,5 +42,12 @@ public class ScoreManager {
 		ScoreManager currenttime = new ScoreManager();
 		currenttime.start();
 	}
+	/**
+	 *  Returns the time in tenthsecondsPassed
+	 */
+	public int gettime()
+	{
+	return  tenthsecondsPassed;
+	}
 }
 
