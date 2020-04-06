@@ -34,7 +34,7 @@ public class GUIGame extends Application implements KeyListener {
 			 //Loop to update the world while there hasn't been a collision.
 //				while(!player.checkCollision(world))
 //				{
-//					World.update();
+/
 //					root.getChildren().clear();
 //					layers.getChildren().clear(); 
 					root.getChildren().add(renderGUI(world, layers));
@@ -52,6 +52,16 @@ public class GUIGame extends Application implements KeyListener {
 					timeline.setCycleCount(Animation.INDEFINITE);
 				    	timeline.play();
 					
+					Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(0.5), ev -> {
+					ObstacleGUI gui = new ObstacleGUI().generate();
+					if (gui != null)
+					{
+					root.getChildren().add(gui.getLayer());
+					}
+					
+					}));
+					timeline2.setCycleCount(Animation.INDEFINITE);
+				    	timeline2.play();
 		/**
 		 * SCENE
 		 */
