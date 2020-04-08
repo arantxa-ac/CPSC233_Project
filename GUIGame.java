@@ -1,14 +1,19 @@
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
-
+import javafx.util.Duration;
 
 
 public class GUIGame extends Application implements KeyListener {
@@ -34,7 +39,7 @@ public class GUIGame extends Application implements KeyListener {
 			 //Loop to update the world while there hasn't been a collision.
 //				while(!player.checkCollision(world))
 //				{
-/
+
 //					root.getChildren().clear();
 //					layers.getChildren().clear(); 
 					root.getChildren().add(renderGUI(world, layers));
@@ -156,3 +161,4 @@ public class GUIGame extends Application implements KeyListener {
 	public void keyReleased(java.awt.event.KeyEvent e) {
 	}
 }
+
