@@ -44,8 +44,19 @@ public class DataProvider {
 	private static String TRIPLE_MULTI_CACTUS = "triple_multi_cactus.png";
 	private static String TRIPLE_SMALL_CACTUS = "triple_small_cactus.png";
 	
+	private static String BIRD_IMAGE = "bird.png";
+	private static int[] BIRD_SETTINGS = {2,2,0,0,48,30};
 	
-	  private static double INITIAL_VELOCITY = -125;
+	
+	public static String getBIRD_IMAGE() {
+		return BIRD_IMAGE;
+	}
+	
+	public static int[] getBIRD_SETTINGS() {
+		return BIRD_SETTINGS;
+	}
+
+	private static double INITIAL_VELOCITY = -125;
 	  private static double FINAL_VELOCITY = 125;
 	  //Acceleration acts as a constant simulating gravity for the jump physics
 	  private static double ACCELERATION = 1;
