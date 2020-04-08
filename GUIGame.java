@@ -82,7 +82,7 @@ public class GUIGame extends Application implements KeyListener {
 					@Override
 					public void handle(KeyEvent event)
 					{
-						if ((event.getCode() == KeyCode.SPACE || event.getCode() == KeyCode.UP) && (player.getY() == 199 || player.getY() == 200))
+						if ((event.getCode() == KeyCode.SPACE || event.getCode() == KeyCode.UP) && (player.getY() > 195))
 						{
 							
 							player.jump();
