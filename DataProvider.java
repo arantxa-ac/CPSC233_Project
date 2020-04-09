@@ -45,6 +45,7 @@ public class DataProvider {
 	private static String TRIPLE_SMALL_CACTUS = "triple_small_cactus.png";
 	
 	private static String BIRD_IMAGE = "bird.png";
+	private static int BIRD_SPEED = 450;
 	private static int[] BIRD_SETTINGS = {2,2,0,0,48,30};
 	
 	
@@ -54,6 +55,10 @@ public class DataProvider {
 	
 	public static int[] getBIRD_SETTINGS() {
 		return BIRD_SETTINGS;
+	}
+	
+	public static int getBIRD_SPEED() {
+		return BIRD_SPEED;
 	}
 
 	private static double INITIAL_VELOCITY = -125;
