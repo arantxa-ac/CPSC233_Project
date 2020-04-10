@@ -3,7 +3,6 @@ import java.util.Random;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -16,7 +15,7 @@ public class ObstacleGUI extends Obstacle{
 	 */
 	Image Obstacle_image;
 	ImageView imageView;
-	int HITBOXSIZE = 5;
+	int HITBOXSIZE = 90;
 	/**
 	 * Always spawn obstacles at the far right of the screen
 	 */
