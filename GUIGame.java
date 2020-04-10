@@ -1,12 +1,15 @@
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
+
+
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.geometry.Bounds;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -45,26 +48,52 @@ public class GUIGame extends Application implements KeyListener {
 					root.getChildren().add(renderGUI(world, layers));
 			
 //				}
+			//		ArrayList<ObstacleGUI> guilist = new ArrayList<ObstacleGUI>();
+					
 			 		Label scoreLabel = new Label();
 					root.getChildren().add(scoreLabel);
-					
+	
 					ScoreManager game = new ScoreManager();
 					game.start();
-					Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.0001), ev -> {
-					scoreLabel.setText("Score: " + game.gettime());
 					
+					Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.0001), ev -> {
+					scoreLabel.setText("Score: " + game.gettime()/10);
+					
+					//update player positions with hitbox positions
+					
+				/*	for (ObstacleGUI x : guilist)
+					{
+						//update hitbox
+					}
+				
+					
+					for (ObstacleGUI x : guilist)
+					{
+						Bounds obstacleBounds = x.getImageView().localToScene(x.getImageView().getBoundsInLocal());
+						Bounds playerBounds = player.getImageView().getBoundsInLocal();
+						if(obstacleBounds.intersects(playerBounds))
+						System.out.println("Game over"); */
+			//		}
 					}));
 					timeline.setCycleCount(Animation.INDEFINITE);
-				    	timeline.play();
+				    timeline.play();
 					
+
+				    
 					Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(0.5), ev -> {
 					ObstacleGUI gui = new ObstacleGUI().generate();
-					if (gui != null)
+					if (player.checkCollision(world))
+					System.out.println(player.checkCollision(world));
+					// guilist.add(gui);
+					
+					if (gui != null)	
 					{
 					root.getChildren().add(gui.getLayer());
+					world.add(gui);
 					}
-					
+				
 					}));
+					
 					timeline2.setCycleCount(Animation.INDEFINITE);
 				    	timeline2.play();
 		/**
@@ -105,8 +134,7 @@ public class GUIGame extends Application implements KeyListener {
 			primaryStage.setResizable(false);
 			primaryStage.show();
 			
-			if (player.checkCollision(world))
-				System.out.println(player.checkCollision(world));
+
 		} 
 		catch(Exception e) {
 			e.printStackTrace();
@@ -161,4 +189,6 @@ public class GUIGame extends Application implements KeyListener {
 	public void keyReleased(java.awt.event.KeyEvent e) {
 	}
 }
+
+
 
