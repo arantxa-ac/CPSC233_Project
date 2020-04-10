@@ -1,5 +1,8 @@
 import java.util.Random;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,8 +20,8 @@ public class ObstacleGUI extends Obstacle{
 	/**
 	 * Always spawn obstacles at the far right of the screen
 	 */
-	int X = 550;
-	int Y = 240;
+	int X = 700;
+	int Y = 220;
 	private int rate = 5;
 	private Sprite obstacleSprite= new Sprite(HITBOXSIZE,X,Y);
 	
@@ -61,22 +64,38 @@ public class ObstacleGUI extends Obstacle{
 	{
 		Pane obstaclePane = new Pane();
 		if (isBird)
+		{
+			Random randombird = new Random();
+			int gen = randombird.nextInt(2);
+			if(gen == 0)
 			{
-			Y = 190;
+			Y = 200;
+			}
+			else 
+			{
+			Y = 140;
+			}
 			SpriteAnimation anim = new SpriteAnimation(imageView,duration,COUNT,COLUMNS,OFFSET_X,OFFSET_Y,WIDTH,HEIGHT);
 			anim.setCycleCount(anim.INDEFINITE);
 		    anim.play();
-			}
+		}
 		imageView.setX(getX());
 		imageView.setY(getY());
 		obstaclePane.getChildren().add(imageView);
-		TranslateTransition move = new TranslateTransition(Duration.millis(2500), obstaclePane);
-		/**
-		 * Moves the obstacle down the pane towards the player
-		 */
-		move.setByX(-600);
-		move.setByY(0);
-		move.play();
+		ScoreManager obstaclegenerator = new ScoreManager();
+		obstaclegenerator.start();
+		
+		Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(.001), ev -> {
+			obstaclePane.getChildren().clear();
+			imageView.setX(obstaclegenerator.getobstacle());
+			imageView.setY(getY());
+			obstaclePane.getChildren().add(imageView);
+			this.getSprite().setHitbox((int) obstaclegenerator.getobstacle(),getY());
+			
+			}));	
+			timeline2.setCycleCount(Animation.INDEFINITE);
+		    timeline2.play();
+		    
 		return obstaclePane;
 	}
 	
@@ -153,3 +172,4 @@ public class ObstacleGUI extends Obstacle{
 		return imageView;
 	}
 }
+
