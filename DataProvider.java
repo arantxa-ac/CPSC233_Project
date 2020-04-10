@@ -36,6 +36,7 @@ public class DataProvider {
 	private static String PLAYER_IMAGE = "trexPlayer.png";
 	private static int[] PLAYER_RUN_SETTINGS = {2,2,176, 0, 88, 94};
 	private static int[] PLAYER_STILL_SETTINGS = {1, 1, 0, 0, 88, 94};
+	private static String DEAD_PLAYER = "deadPlayer.png";
 	
 	/**
 	 * Note that cacti are not animated but do have multiple possible images
@@ -45,8 +46,10 @@ public class DataProvider {
 	private static String TRIPLE_SMALL_CACTUS = "triple_small_cactus.png";
 	
 	private static String BIRD_IMAGE = "bird.png";
-	private static int BIRD_SPEED = 450;
 	private static int[] BIRD_SETTINGS = {2,2,0,0,48,30};
+	private static int BIRD_SPEED = 450;
+	
+	public static String GAME_OVER = "gameOver.png";
 	
 	
 	public static String getBIRD_IMAGE() {
@@ -120,4 +123,13 @@ public class DataProvider {
 		return JUMP_CONSTANT;
 		
 	}
+	
+	public static String getDEAD_PLAYER() {
+		return DEAD_PLAYER;
+	}
+	
+	public static String getGAME_OVER() {
+		return GAME_OVER;
+	}
+	
 }
