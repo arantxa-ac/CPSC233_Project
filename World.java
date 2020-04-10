@@ -42,4 +42,7 @@ public class World {
 	public ArrayList<GameObject> getGame() {
 		return game;
 	}
+	public void add(GameObject g) {
+        game.add(g);
+    }
 }
