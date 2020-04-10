@@ -5,7 +5,7 @@ import java.util.TimerTask;
 
 public class ScoreManager {
 	private int tenthsecondsPassed = 0;
-	private int score = 0;
+	private double obstacle = 1000;
 	/**
 	 *  Add a timer for the score to take place
 	 */
@@ -14,8 +14,8 @@ public class ScoreManager {
 
 		public void run() {
 			tenthsecondsPassed++;
-			score = tenthsecondsPassed;
-			System.out.println("Score is: " + score);
+			obstacle = obstacle - 10;
+	
 		}
 	};
 	
@@ -23,7 +23,7 @@ public class ScoreManager {
 	 *  Increment score for every tenth of a second and print it
 	 */
 	public void start() {
-		scoreCalculator.scheduleAtFixedRate(task, 100, 100);
+		scoreCalculator.scheduleAtFixedRate(task, 0, 10);
 	}
 	
 	/**
@@ -48,6 +48,10 @@ public class ScoreManager {
 	public int gettime()
 	{
 	return  tenthsecondsPassed;
+	}
+	public double getobstacle()
+	{
+		return obstacle;
 	}
 }
 
