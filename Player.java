@@ -50,7 +50,7 @@ public class Player extends GameObject
 		{
 			if (g instanceof Obstacle && g != null)
 			{
-				if(g.getSprite().hitbox().getBoundsInParent().intersects(world.getGame().get(0).getSprite().hitbox().getBoundsInParent()))
+				if(g.getSprite().getHitbox().getBounds().intersects(world.getGame().get(0).getSprite().getHitbox().getBounds()))
 						{
 						return true;
 						}
