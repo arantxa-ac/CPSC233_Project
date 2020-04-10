@@ -18,6 +18,7 @@ public class GroundGUI extends GameObject{
     private final int HEIGHT = DataProvider.getGROUND_SETTINGS()[5];
     private final int MILLISDURATION = DataProvider.getGROUND_SPEED();
     private ImageView imageView;
+    Pane groundPane = new Pane();
 
     
     /**
@@ -35,8 +36,8 @@ public class GroundGUI extends GameObject{
 		imageView = new ImageView(IMAGE);
 		imageView.setViewport(new Rectangle2D(OFFSET_X, OFFSET_Y, WIDTH, HEIGHT));
 		SpriteAnimation animation = new SpriteAnimation(imageView, Duration.millis(MILLISDURATION), COUNT, COLUMNS, OFFSET_X, OFFSET_Y, WIDTH, HEIGHT);
-		 animation.setCycleCount(animation.INDEFINITE);
-	     animation.play();
+		animation.setCycleCount(animation.INDEFINITE);
+	    animation.play();
 	}
     
     /**
@@ -45,7 +46,6 @@ public class GroundGUI extends GameObject{
      */
 	public Pane getLayer()
 	{
-		Pane groundPane = new Pane();
 		this.animate();
 		imageView.setX(X);
 		imageView.setY(Y);
@@ -53,6 +53,18 @@ public class GroundGUI extends GameObject{
 		return groundPane;
 	}
 	
+	/**
+	 * Called upon when the game ends, as the ground animation must stop
+	 * @return new Pane that displays the still ground
+	 */
+	public Pane gameOver() {
+		groundPane.getChildren().clear();
+		imageView = new ImageView(IMAGE);
+		imageView.setX(X);
+		imageView.setY(Y);
+		groundPane.getChildren().add(imageView);
+		return groundPane;
+	}
 	/**
 	 * GETTER FOR SPRITE
 	 * @return ground sprite which is null since it is not needed for collision detection
