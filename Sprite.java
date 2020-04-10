@@ -1,19 +1,16 @@
-import java.awt.Rectangle;
+import javafx.scene.shape.Rectangle;
 
 public class Sprite  {
 	private int hitboxSize;
 	/**
 	 * These x and y locations will be pixel locations on the GUI
 	 */
-	private int x;
-	private int y;
 	private Rectangle hitbox;
 	
 	//Constructor for the Sprite
 	public Sprite(int hitboxSize, int x, int y) {
 		this.hitboxSize = hitboxSize;
-		this.x = x;
-		this.y=y;
+		setHitbox(x,y);
 	}
 	
 	/**
@@ -25,8 +22,7 @@ public class Sprite  {
 	}
 	
 	public void setHitbox(int newX, int newY) {
-		hitbox = new Rectangle(newX, newY, hitboxSize, hitboxSize);
-		
+		hitbox = new Rectangle(newX-hitboxSize/2, newY+hitboxSize/2, hitboxSize, hitboxSize);
 	}
 
 }
