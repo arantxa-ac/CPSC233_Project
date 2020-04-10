@@ -10,7 +10,7 @@ public class PlayerGUI extends Player
 	/**
 	 * Instance Variables for PlayerGUI
 	 */
-	int HITBOXSIZE = 95;
+	int HITBOXSIZE = 5;
 	int X = 0;
 	int Y = 200;
 	Image image = new Image(getClass().getResourceAsStream(DataProvider.getPLAYER_IMAGE()));
@@ -40,10 +40,24 @@ public class PlayerGUI extends Player
 	 */
 	public Pane getLayer()
 	{
-		playerSprite.hitbox();
+		playerSprite.getHitbox();
 		this.animate(image, duration, count, columns, offsetX, offsetY, width, height);
 		imageView.setX(X);
 		imageView.setY(Y);
+		playerPane.getChildren().add(imageView);
+		return playerPane;
+	}
+	
+	/**
+	 * Called upon when the game ends - there is a collision in GUIGame as the imageview must change when the player dies
+	 * @return new PlayerPane
+	 */
+	public Pane end() {
+		image = new Image(getClass().getResourceAsStream(DataProvider.getDEAD_PLAYER()));
+		imageView = new ImageView(image);
+		imageView.setX(X);
+		imageView.setY(Y);
+		playerPane.getChildren().clear();
 		playerPane.getChildren().add(imageView);
 		return playerPane;
 	}
