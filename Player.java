@@ -17,10 +17,15 @@ public class Player extends GameObject
 			*/
 			public void run() {
 				if (velocityFinal >=0)
+				{
 					setY((int) (DataProvider.getJUMP_CONSTANT() + velocityFinal));
+					getSprite().setHitbox(getX(), getY());
+				}
 				else if (velocityFinal <0)
+				{
 					setY((int) (DataProvider.getJUMP_CONSTANT() - velocityFinal));
-					
+					getSprite().setHitbox(getX(), getY());
+				}
 				velocityFinal = velocityFinal - acceleration;
 				
 				if (velocityFinal <= (velocityInitial))
