@@ -16,7 +16,7 @@ public class ObstacleGUI extends Obstacle{
 	 */
 	Image Obstacle_image;
 	ImageView imageView;
-	int HITBOXSIZE = 50;
+	int HITBOXSIZE = 5;
 	/**
 	 * Always spawn obstacles at the far right of the screen
 	 */
@@ -36,6 +36,9 @@ public class ObstacleGUI extends Obstacle{
     private final int OFFSET_Y = DataProvider.getBIRD_SETTINGS()[3];
     private final int WIDTH = DataProvider.getBIRD_SETTINGS()[4];
     private final int HEIGHT = DataProvider.getBIRD_SETTINGS()[5];
+    
+    private boolean stop = false;
+    Timeline timeline2 = new Timeline();
 	
 	/**
 	 * Array used to randomly choose from three different types of obstacle images
@@ -68,13 +71,10 @@ public class ObstacleGUI extends Obstacle{
 			Random randombird = new Random();
 			int gen = randombird.nextInt(2);
 			if(gen == 0)
-			{
-			Y = 200;
-			}
+				Y = 200;
 			else 
-			{
-			Y = 140;
-			}
+				Y = 140;
+			
 			SpriteAnimation anim = new SpriteAnimation(imageView,duration,COUNT,COLUMNS,OFFSET_X,OFFSET_Y,WIDTH,HEIGHT);
 			anim.setCycleCount(anim.INDEFINITE);
 		    anim.play();
@@ -85,12 +85,15 @@ public class ObstacleGUI extends Obstacle{
 		ScoreManager obstaclegenerator = new ScoreManager();
 		obstaclegenerator.start();
 		
-		Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(.001), ev -> {
+		 timeline2 = new Timeline(new KeyFrame(Duration.seconds(.001), ev -> {
 			obstaclePane.getChildren().clear();
 			imageView.setX(obstaclegenerator.getobstacle());
 			imageView.setY(getY());
 			obstaclePane.getChildren().add(imageView);
 			this.getSprite().setHitbox((int) obstaclegenerator.getobstacle(),getY());
+			
+			if(stop)
+				timeline2.pause();
 			
 			}));	
 			timeline2.setCycleCount(Animation.INDEFINITE);
@@ -132,6 +135,9 @@ public class ObstacleGUI extends Obstacle{
 		imageView.setX(x);
 	}
 	
+	public void stop(boolean collision) {
+		stop = collision;
+	}
 	/**
 	 * GENERATE METHOD:
 	 * @return Either generate an ObstacleGUI class randomly or nothing
