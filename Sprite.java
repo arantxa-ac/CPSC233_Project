@@ -24,8 +24,8 @@ public class Sprite  {
 		return hitbox;
 	}
 	
-	public void setHitbox(int obstacleX) {
-		hitbox = new Rectangle(obstacleX, this.y, hitboxSize, hitboxSize);
+	public void setHitbox(int newX, int newY) {
+		hitbox = new Rectangle(newX, newY, hitboxSize, hitboxSize);
 		
 	}
 
