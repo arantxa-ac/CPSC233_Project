@@ -12,6 +12,9 @@ public class TextPlayer extends Player{
 		}
 		
 	}
+	//public boolean checkcollision(world) {
+		
+	//}
 	
 
 }
