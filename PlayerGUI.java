@@ -10,7 +10,7 @@ public class PlayerGUI extends Player
 	/**
 	 * Instance Variables for PlayerGUI
 	 */
-	int HITBOXSIZE = 5;
+	int HITBOXSIZE = 95;
 	int X = 0;
 	int Y = 200;
 	Image image = new Image(getClass().getResourceAsStream(DataProvider.getPLAYER_IMAGE()));
@@ -28,7 +28,7 @@ public class PlayerGUI extends Player
 	int offsetYStill = DataProvider.getPLAYER_STILL_SETTINGS()[3];
 	int widthStill = DataProvider.getPLAYER_STILL_SETTINGS()[4];
 	int heightStill = DataProvider.getPLAYER_STILL_SETTINGS()[5];
-	Sprite playerSprite= new Sprite(HITBOXSIZE,X,Y);
+	Sprite playerSprite= new Sprite(HITBOXSIZE, X,Y);
 	
 	Pane playerPane = new Pane();
 	
@@ -120,8 +120,8 @@ public class PlayerGUI extends Player
 		{
 			if (g instanceof ObstacleGUI && g != null)
 			{
-				Bounds obstacleBounds = g.getImageView().localToScene(g.getImageView().getBoundsInLocal());
-				Bounds playerBounds = world.getGame().get(0).getImageView().localToScene(g.getImageView().getBoundsInLocal());
+				Bounds obstacleBounds = g.getSprite().getHitbox().localToScene(g.getSprite().getHitbox().getBoundsInParent(), true);
+				Bounds playerBounds = world.getGame().get(0).getSprite().getHitbox().localToScene(world.getGame().get(0).getSprite().getHitbox().getBoundsInParent(), true);
 				if(obstacleBounds.intersects(playerBounds))
 						{
 						return true;
