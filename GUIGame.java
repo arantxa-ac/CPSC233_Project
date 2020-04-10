@@ -130,6 +130,7 @@ public class GUIGame extends Application implements KeyListener {
 							
 							player.jump();
 							player.setY(200);
+							player.getSprite().setHitbox(player.getX(), 200);
 							player.velocityFinal = DataProvider.getFINAL_VELOCITY();
 						}
 					}
