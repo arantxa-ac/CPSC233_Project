@@ -20,7 +20,7 @@ public class DataProvider {
 	 */
 	private static int GROUND_SPEED = 2000;
 	//Image 
-	private static String GROUND_IMAGE = "ground.png";
+	private static String GROUND_IMAGE = "/Sprites/ground.png";
 	/**
 	 * Settings used for the SpriteAnimation, its parameters being: 
 	 * Count
@@ -33,23 +33,23 @@ public class DataProvider {
 	private static int[] GROUND_SETTINGS = {2,2,0,0,600,14};
 	
 	private static int PLAYER_SPEED = 400;
-	private static String PLAYER_IMAGE = "trexPlayer.png";
+	private static String PLAYER_IMAGE = "/Sprites/trexPlayer.png";
 	private static int[] PLAYER_RUN_SETTINGS = {2,2,176, 0, 88, 94};
 	private static int[] PLAYER_STILL_SETTINGS = {1, 1, 0, 0, 88, 94};
-	private static String DEAD_PLAYER = "deadPlayer.png";
+	private static String DEAD_PLAYER = "/Sprites/deadPlayer.png";
 	
 	/**
 	 * Note that cacti are not animated but do have multiple possible images
 	 */
-	private static String SINGLE_CACTUS = "single_big_cactus.png";
-	private static String TRIPLE_MULTI_CACTUS = "triple_multi_cactus.png";
-	private static String TRIPLE_SMALL_CACTUS = "triple_small_cactus.png";
+	private static String SINGLE_CACTUS = "/Sprites/single_big_cactus.png";
+	private static String TRIPLE_MULTI_CACTUS = "/Sprites/triple_multi_cactus.png";
+	private static String TRIPLE_SMALL_CACTUS = "/Sprites/triple_small_cactus.png";
 	
-	private static String BIRD_IMAGE = "bird.png";
+	private static String BIRD_IMAGE = "/Sprites/bird.png";
 	private static int[] BIRD_SETTINGS = {2,2,0,0,48,30};
 	private static int BIRD_SPEED = 450;
 	
-	public static String GAME_OVER = "gameOver.png";
+	public static String GAME_OVER = "/Sprites/gameOver.png";
 	
 	
 	public static String getBIRD_IMAGE() {
