@@ -10,6 +10,8 @@ In order to run the program in the GUI version:
 3) Download and setup javafx in Eclipse for the game to run properly.
 4) Make sure that sprite images are inside a folder called **Sprites** located in the same package as all other classes.
 5) Run the **GUIGame** class.
+In order to play the game use *space bar* or *up arrow key* to jump when an obstacles approaches.
+Once the game is over, to play again run **GUIGame** class.
 
 # T-Rex Run Text Version
 In order to run the program in the GUI version:
