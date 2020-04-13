@@ -22,110 +22,99 @@ import javafx.util.Duration;
 
 public class GUIGame extends Application implements KeyListener {
 	
-
+	/*
+	 * Instance variables used in GUIGAME class
+	 */
 	static Scene scene;
-	Timeline obstacleGeneration = new Timeline();
+	Timeline obstacleGenerationTimeline = new Timeline();
+	
 	/**
-	 * Override of the start method
+	 * Override of the start method of the application
+	 * @param Stage primaryStage where application will be shown.
 	 */
 	@Override
 	public void start(Stage primaryStage) {		
 		try {
-			//Create root Pane, layers to insert every Game Object, and world to store each Game Object.
-			 Pane root = new Pane();
-			 Pane layers = new Pane();
-			 PlayerGUI player = new PlayerGUI();
-			 World world = new World();
-			 
-			 ArrayList<GameObject> obj = world.getGame();
-			 obj.set(0, player);
-			 TextGame tg = new TextGame(obj);
-			 tg.toPrint();
+			/*
+			 * Create root Pane, layers to insert every Game Object, and world to store each Game Object.
+			 */
+			Pane root = new Pane();
+			Pane layers = new Pane();
+			PlayerGUI player = new PlayerGUI();
+			World world = new World();
+			ArrayList<GameObject> objects = world.getGame();
+			objects.set(0, player);
 		 
+			/*
+			 * Create new text game
+			 */
+			TextGame tg = new TextGame(objects);
+			tg.toPrint();
 			 
-			 //Loop to update the world while there hasn't been a collision.
-//				while(!player.checkCollision(world))
-//				{
-
-//					root.getChildren().clear();
-//					layers.getChildren().clear(); 
-					root.getChildren().add(renderGUI(world, layers));
+			/*
+			 * Add the layers that contain each game object to root Pane.
+			 */
+			root.getChildren().add(renderGUI(world, layers));
 			
-//				}
-			//		ArrayList<ObstacleGUI> guilist = new ArrayList<ObstacleGUI>();
-					
-			 		Label scoreLabel = new Label();
-					root.getChildren().add(scoreLabel);
-	
-					ScoreManager game = new ScoreManager();
-					game.start();
-					
-					Timeline score = new Timeline(new KeyFrame(Duration.seconds(0.0001), ev -> {
-					scoreLabel.setText("Score: " + game.gettime()/10);
-					
-					//update player positions with hitbox positions
-					
-				/*	for (ObstacleGUI x : guilist)
-					{
-						//update hitbox
-					}
-				
-					
-					for (ObstacleGUI x : guilist)
-					{
-						Bounds obstacleBounds = x.getImageView().localToScene(x.getImageView().getBoundsInLocal());
-						Bounds playerBounds = player.getImageView().getBoundsInLocal();
-						if(obstacleBounds.intersects(playerBounds))
-						System.out.println("Game over"); */
-			//		}
-					}));
-					score.setCycleCount(Animation.INDEFINITE);
-				    score.play();
+			/*
+			 * Add score label to root.
+			 */
+	 		Label scoreLabel = new Label();
+			root.getChildren().add(scoreLabel);
+			/*
+			 * Start the score count and update the label when score changes using a Timeline.
+			 */
+			ScoreManager gameScore = new ScoreManager();
+			gameScore.start();
+			Timeline scoreTimeline = new Timeline(new KeyFrame(Duration.seconds(0.0001), ev -> {
+			scoreLabel.setText("Score: " + gameScore.gettime()/10);}));
+			scoreTimeline.setCycleCount(Animation.INDEFINITE);
+			scoreTimeline.play();
 					
 
-				    /**
-				     * Timeline used to manage the constant generation of obstacles
-				     */
-					obstacleGeneration = new Timeline(new KeyFrame(Duration.seconds(0.5), ev -> {
-						
-					ObstacleGUI newObstacle = new ObstacleGUI().generate();
-					/**
-					 * If there's a collision, the game should stop running
-					 */
-					for (int i = 0; i < 3; i++) {
-						tg.updateByFrame();
-					}
-					tg.toPrint();
-					 
-					 if (player.checkCollision(world)) {
-						obstacleGeneration.stop();
-						score.stop();
-						if(newObstacle != null)
-							newObstacle.stop(true);
-						root.getChildren().add(gameOver(world));
-						System.out.print("Game Over");
-						
-					}
-					
-					// guilist.add(gui);
-					
-					if (newObstacle != null)	
-					{
-						root.getChildren().add(newObstacle.getLayer());
-						world.add(newObstacle);
-						tg.generateType(newObstacle.getIsBird());
-						
-					}
-				   
-					}));
-					
-					obstacleGeneration.setCycleCount(Animation.INDEFINITE);
-				    obstacleGeneration.play();
+		    /**
+		     * Timeline used to manage the constant generation of obstacles
+		     */
+			obstacleGenerationTimeline = new Timeline(new KeyFrame(Duration.seconds(0.5), ev -> {
+			ObstacleGUI newObstacle = new ObstacleGUI().generate();
+			
+			/*
+			 * Update text game.
+			 */
+			for (int i = 0; i < 3; i++) 
+			{
+				tg.updateByFrame();
+			}
+			tg.toPrint();
+			
+			/**
+			 * If there's a collision, the game should stop running
+			 */
+			if (player.checkCollision(world)) {
+				obstacleGenerationTimeline.stop();
+				scoreTimeline.stop();
+				if(newObstacle != null)
+					newObstacle.stop(true);
+				root.getChildren().add(gameOver(world));
+				System.out.print("Game Over");
+			}
+			
+			/*
+			 * If a new obstacle is generated, add the obstacle layer to the world.
+			 */
+			if (newObstacle != null)	
+			{
+				root.getChildren().add(newObstacle.getLayer());
+				world.add(newObstacle);
+				tg.generateType(newObstacle.getIsBird());
+			}
+			}));		
+			obstacleGenerationTimeline.setCycleCount(Animation.INDEFINITE);
+		    obstacleGenerationTimeline.play();
 		/**
 		 * SCENE
 		 */
 			scene = new Scene(root,DataProvider.getWINDOW_WIDTH(),DataProvider.getWINDOW_HEIGHT());
-			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 		/**
 		 * EVENT HANDLER:
@@ -185,7 +174,7 @@ public class GUIGame extends Application implements KeyListener {
 	
 	
 	/**
-	 * 
+	 * GAME OVER METHOD
 	 * @param World w to access the world's ArrayList
 	 * @return Pane endScreen that replaces the running game Pane
 	 */
@@ -194,11 +183,11 @@ public class GUIGame extends Application implements KeyListener {
 		((PlayerGUI) w.getGame().get(0)).end();
 		((GroundGUI) w.getGame().get(1)).gameOver();
 		Image endImage = new Image(getClass().getResourceAsStream(DataProvider.getGAME_OVER()));
-		ImageView end = new ImageView(endImage);
+		ImageView endImageView = new ImageView(endImage);
 		//Want the 'GAME OVER' to be perfectly centered
-		end.setX(DataProvider.getWINDOW_WIDTH()/2 - endImage.getWidth()/2);
-		end.setY(DataProvider.getWINDOW_HEIGHT()/2 - endImage.getHeight()/2);
-		endScreen.getChildren().add(end);
+		endImageView.setX(DataProvider.getWINDOW_WIDTH()/2 - endImage.getWidth()/2);
+		endImageView.setY(DataProvider.getWINDOW_HEIGHT()/2 - endImage.getHeight()/2);
+		endScreen.getChildren().add(endImageView);
 		return endScreen;
 	}
 	
@@ -235,6 +224,3 @@ public class GUIGame extends Application implements KeyListener {
 	public void keyReleased(java.awt.event.KeyEvent e) {
 	}
 }
-
-
-
