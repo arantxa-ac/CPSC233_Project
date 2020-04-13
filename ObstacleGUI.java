@@ -14,7 +14,7 @@ public class ObstacleGUI extends Obstacle{
 	 */
 	Image Obstacle_image;
 	ImageView imageView;
-	int HITBOXSIZE = 90;
+	int HITBOXSIZE = 40;
 	/**
 	 * Always spawn obstacles at the far right of the screen
 	 */
