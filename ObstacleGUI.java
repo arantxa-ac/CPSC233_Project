@@ -189,14 +189,6 @@ public class ObstacleGUI extends Obstacle{
 	}
 	
 	/**
-	 * GETTER FOR IMAGEVIEW
-	 * @return Obstacle ImageView
-	 */
-	public ImageView getImageView() {
-		return imageView;
-	}
-	
-	/**
 	 * GETTER FOR IS BIRD
 	 * @return true if the obstacle generated is a bird, false otherwise.
 	 */
