@@ -1,5 +1,4 @@
 import java.util.Random;
-
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -36,17 +35,24 @@ public class ObstacleGUI extends Obstacle{
     private final int WIDTH = DataProvider.getBIRD_SETTINGS()[4];
     private final int HEIGHT = DataProvider.getBIRD_SETTINGS()[5];
     
+    /*
+     * Instance variables for obstacle timeline.
+     */
     private boolean stop = false;
     Timeline timeline2 = new Timeline();
 	
 	/**
-	 * Array used to randomly choose from three different types of obstacle images
+	 * Array used to randomly choose from four different types of obstacle images
 	 */
 	Image [] imageList = {new Image(getClass().getResourceAsStream(DataProvider.getSINGLE_CACTUS())), 
 			new Image(getClass().getResourceAsStream(DataProvider.getTRIPLE_SMALL_CACTUS())),
 			new Image(getClass().getResourceAsStream(DataProvider.getTRIPLE_MULTI_CACTUS())),
 			new Image(getClass().getResourceAsStream(DataProvider.getBIRD_IMAGE()))};
 	
+	/*
+	 * OBSTACLEGUI CONSTRUCTOR
+	 * Chooses an obstacle image randomly and sets up its image view.
+	 */
 	public ObstacleGUI() {
 		Random rand = new Random();
 		int generate = rand.nextInt(4);
@@ -59,12 +65,16 @@ public class ObstacleGUI extends Obstacle{
 	/**
 	 * GET LAYER METHOD
 	 * Overrides original abstract method in GameObject
-	 * @returns a Pane that contains imageview with object in the specified coordinates
+	 * @returns a Pane that contains image view with object in the specified coordinates
+	 * This Pane also updates the x coordinate of the obstacle using a Timeline.
 	 */
 	@Override
 	public Pane getLayer()
 	{
 		Pane obstaclePane = new Pane();
+		/*
+		 * If the obstacle is a bird, choose randomly if it is a high flying bird or not.
+		 */
 		if (isBird)
 		{
 			Random randombird = new Random();
@@ -78,6 +88,9 @@ public class ObstacleGUI extends Obstacle{
 			anim.setCycleCount(anim.INDEFINITE);
 		    anim.play();
 		}
+		/*
+		 * Use timeline to update x-coordinate of the obstacle.
+		 */
 		imageView.setX(getX());
 		imageView.setY(getY());
 		obstaclePane.getChildren().add(imageView);
@@ -134,9 +147,15 @@ public class ObstacleGUI extends Obstacle{
 		imageView.setX(x);
 	}
 	
+	/**
+	 * STOP METHOD
+	 * Used to stop obstacle generation if there has been a collision.
+	 * @param boolean indicating if there has been a collision.
+	 */
 	public void stop(boolean collision) {
 		stop = collision;
 	}
+	
 	/**
 	 * GENERATE METHOD:
 	 * @return Either generate an ObstacleGUI class randomly or nothing
@@ -177,8 +196,11 @@ public class ObstacleGUI extends Obstacle{
 		return imageView;
 	}
 	
+	/**
+	 * GETTER FOR IS BIRD
+	 * @return true if the obstacle generated is a bird, false otherwise.
+	 */
 	public boolean getIsBird() {
 		return isBird;
 	}
 }
-
