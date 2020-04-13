@@ -1,18 +1,17 @@
 # CPSC233 - T08G04
 This is an animation based project in which two users are able to play the T-Rex Run game. This is runner game in which the user is a dinosaur that must avoid obtacles by jumping and duking. If the dinosaur hits an obtacle, the game ends.
-# Demo 2
-Demo 2 version of this project can be found in Demostration #2 branch from this repository.
-To use Demo 2 compile classes and then run Game class as follows:
+Final version of this project can be found in master branch from this repository.
+To run the T-rex Run Game you can use the GUI or Text version:
 
-In order to run the program:
-1) Download all the classes.
-2) Import the files into Eclipse
-3) Run the program through Game
-4) Add Javafx inorder to run the animation in the game
+# T-Rex Run GUI Version
+In order to run the program in the GUI version:
+1) Download all the classes and the Sprites folder where the images for objects in the game are located from master branch.
+2) Import the files into Eclipse.
+3) Download and setup javafx in Eclipse for the game to run properly.
+4) Make sure that sprite images are inside a folder called **Sprites** located in the same package as all other classes.
+5) Run the **GUIGame** class.
 
-In order to play the game:
-1) The game will start automaticlly.
-2) In order to jump over obstacles click space key or upward key
-3) The player will keep running until hit by an obstacle
-4) if you hit an obstacle then the first player's game will be over and the second player's run will start.
-5) The instructions for the second player are the same from 1-3.
+# T-Rex Run Text Version
+In order to run the program in the GUI version:
+1) Download all the classes from master branch.
+2) 
