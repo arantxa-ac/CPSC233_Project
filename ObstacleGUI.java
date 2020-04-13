@@ -15,7 +15,7 @@ public class ObstacleGUI extends Obstacle{
 	 */
 	Image Obstacle_image;
 	ImageView imageView;
-	int HITBOXSIZE = 40;
+	int HITBOXSIZE = 90;
 	/**
 	 * Always spawn obstacles at the far right of the screen
 	 */
@@ -27,7 +27,7 @@ public class ObstacleGUI extends Obstacle{
 	/**
 	 * Instance Variables specific to bird obstacles
 	 */
-	private boolean isBird;
+	private boolean isBird = false;
 	private final Duration duration = Duration.millis(DataProvider.getBIRD_SPEED());
 	private final int COUNT = DataProvider.getBIRD_SETTINGS()[0];
     private final int COLUMNS = DataProvider.getBIRD_SETTINGS()[1];
@@ -176,4 +176,9 @@ public class ObstacleGUI extends Obstacle{
 	public ImageView getImageView() {
 		return imageView;
 	}
+	
+	public boolean getIsBird() {
+		return isBird;
+	}
 }
+

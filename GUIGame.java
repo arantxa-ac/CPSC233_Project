@@ -36,8 +36,11 @@ public class GUIGame extends Application implements KeyListener {
 			 Pane layers = new Pane();
 			 PlayerGUI player = new PlayerGUI();
 			 World world = new World();
+			 
 			 ArrayList<GameObject> obj = world.getGame();
 			 obj.set(0, player);
+			 TextGame tg = new TextGame(obj);
+			 tg.toPrint();
 		 
 			 
 			 //Loop to update the world while there hasn't been a collision.
@@ -89,12 +92,19 @@ public class GUIGame extends Application implements KeyListener {
 					/**
 					 * If there's a collision, the game should stop running
 					 */
-					if (player.checkCollision(world)) {
+					for (int i = 0; i < 3; i++) {
+						tg.updateByFrame();
+					}
+					tg.toPrint();
+					 
+					 if (player.checkCollision(world)) {
 						obstacleGeneration.stop();
 						score.stop();
 						if(newObstacle != null)
 							newObstacle.stop(true);
-						root.getChildren().add(gameOver(world));				
+						root.getChildren().add(gameOver(world));
+						System.out.print("Game Over");
+						
 					}
 					
 					// guilist.add(gui);
@@ -103,12 +113,14 @@ public class GUIGame extends Application implements KeyListener {
 					{
 						root.getChildren().add(newObstacle.getLayer());
 						world.add(newObstacle);
+						tg.generateType(newObstacle.getIsBird());
+						
 					}
-				
+				   
 					}));
 					
 					obstacleGeneration.setCycleCount(Animation.INDEFINITE);
-				    	obstacleGeneration.play();
+				    obstacleGeneration.play();
 		/**
 		 * SCENE
 		 */
@@ -131,6 +143,7 @@ public class GUIGame extends Application implements KeyListener {
 							player.setY(200);
 							player.getSprite().setHitbox(player.getX(), 200);
 							player.velocityFinal = DataProvider.getFINAL_VELOCITY();
+							tg.jump();
 						}
 					}
 				});
