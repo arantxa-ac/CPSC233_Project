@@ -29,14 +29,13 @@ public class PlayerGUI extends Player
 	int widthStill = DataProvider.getPLAYER_STILL_SETTINGS()[4];
 	int heightStill = DataProvider.getPLAYER_STILL_SETTINGS()[5];
 	Sprite playerSprite= new Sprite(HITBOXSIZE, X,Y);
-	
 	Pane playerPane = new Pane();
 	
 	
 
 	/**
 	 * GETLAYER METHOD:
-	 * @return Pane that contains imageView with animated dinosaur in the specified coordinates
+	 * @return Pane that contains imageView with animated dinosaur in the specified coordinates.
 	 */
 	public Pane getLayer()
 	{
@@ -49,6 +48,7 @@ public class PlayerGUI extends Player
 	}
 	
 	/**
+	 * END METHOD
 	 * Called upon when the game ends - there is a collision in GUIGame as the imageview must change when the player dies
 	 * @return new PlayerPane
 	 */
@@ -150,13 +150,4 @@ public class PlayerGUI extends Player
 	public Sprite getSprite() {
 		return playerSprite;
 	}
-	
-	/**
-	 * GETTER FOR IMAGEVIEW
-	 * @return Player ImageView
-	 */
-	public ImageView getImageView() {
-		return imageView;
-	}
-
 }
