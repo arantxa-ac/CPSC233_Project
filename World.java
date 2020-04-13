@@ -2,9 +2,14 @@ import java.util.ArrayList;
 
 public class World {
 
+	/*
+	 * Create a new ArrayList made up of Game Objects
+	 */
 	private static ArrayList<GameObject> game = new ArrayList<GameObject>();
+	
 	/**
-	 *  Add the game objects into the world and print it
+	 *  WORLD CONSTRUCTOR
+	 *  Adds the game objects into the world.
 	 */
 	public World() {
 		
@@ -13,13 +18,14 @@ public class World {
 	}
 	
 	/**
-	 *  Update the world every frame
+	 * UPDATE METHOD
+	 *  Updates the world every frame
 	 */
 	public static void update() {
 		/**
 		 *  Create a new ArrayList
 		 */
-	ArrayList<GameObject> preWorld = new ArrayList<GameObject>();
+		ArrayList<GameObject> preWorld = new ArrayList<GameObject>();
 		/**
 		 *  Add each object from the game ArrayList into the new ArrayList
 		 */
@@ -42,6 +48,11 @@ public class World {
 	public ArrayList<GameObject> getGame() {
 		return game;
 	}
+	
+	/**
+	 * ADD METHOD
+	 * @param Game Object g that will be added to the world.
+	 */
 	public void add(GameObject g) {
         game.add(g);
     }
