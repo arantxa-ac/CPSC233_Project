@@ -6,7 +6,9 @@ import javafx.util.Duration;
 
 public class GroundGUI extends GameObject{
 	
-	//Instance Variables for GroundGUI
+	/*
+	 * Instance Variables for GroundGUI
+	 */
 	private static final double X = 0;
 	private static final double Y = 275;
 	private final Image IMAGE = new Image(getClass().getResourceAsStream(DataProvider.getGROUND_IMAGE()));
@@ -67,13 +69,10 @@ public class GroundGUI extends GameObject{
 	}
 	/**
 	 * GETTER FOR SPRITE
-	 * @return ground sprite which is null since it is not needed for collision detection
+	 * @return ground sprite which is null since it is not needed for collision detection.
 	 */
 	@Override
 	public Sprite getSprite() {
 		return null;
 	}
-
-
 }
-
