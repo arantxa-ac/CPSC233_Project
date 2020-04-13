@@ -1,16 +1,12 @@
-import java.util.Scanner;
-
 public class TextPlayer extends Player{
-	//input
-	//player:Sprite
-	//Scanner userInput = new Scanner(System.in);
+
+	/**
+	 * JUMP STATE METHOD
+	 * Prints player jumped to the console.
+	 */
 	public void jumpstate() {
 		System.out.println("Player Jumped");
 		
 	}
-	//public boolean checkcollision(world) {
-		
-	//}
-	
 
 }
