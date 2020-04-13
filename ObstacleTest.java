@@ -5,10 +5,17 @@ import java.util.Random;
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-
+/**
+ * 
+ * A test class for the Obstacle class
+ *
+ */
 
  	public class ObstacleTest {
  		private int rate = 5;
+ 		/**
+ 		 * Testing to see if the generate() method in the Obstacle class randomly generates obstacles
+ 		 */
 	@Test
 	public void test_generate() {
 		Obstacle obstacle = new Obstacle();
@@ -26,3 +33,4 @@ import static org.junit.Assert.fail;
 	}
 
 }
+
