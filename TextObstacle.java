@@ -1,9 +1,9 @@
 import java.util.Random;
 
 public class TextObstacle extends Obstacle{
-	//rate:int
-	//sprite
-	//hitbox:rectangle
+	/*
+	 * Instance variables for Text Obstacle class
+	 */
 	private static String Cactus = "|";
 	private static String Ground = "_";
 	private static String Bird = "-";
@@ -12,19 +12,43 @@ public class TextObstacle extends Obstacle{
 	 */
 	private static int rate = 5;
 	
+	/**
+	 * GETTER FOR GROUND
+	 * @return String representation of the ground.
+	 */
 	public static String getGround() {
 		return Ground;
 	}
+	
+	/**
+	 * SETTER FOR GROUND
+	 * @param New string representation of the ground.
+	 */
 	public static void setGround(String ground) {
 		Ground = ground;
 	}
+	
+	/**
+	 * GETTER FOR BIRD
+	 * @return String representation of the bird obstacle.
+	 */
 	public static String getBird() {
 		return Bird;
 	}
+	
+	/**
+	 * SETTER FOR BIRD
+	 * @param New string representation of the bird obstacle.
+	 */
 	public static void setBird(String bird) {
 		Bird = bird;
 	}
 	
+	/**
+	 * GET NEW OBSTACLES METHOD
+	 * @return String representation of cactus if a new cactus was generated 
+	 * or string representation of ground if it was not.
+	 */
 	public static String getNewObstacles() {
 		int Ob;
 		Random rand = new Random();
@@ -36,9 +60,19 @@ public class TextObstacle extends Obstacle{
 			return Ground;
 		}
 	}
+	
+	/**
+	 * GETTER FOR CACTUS
+	 * @return String representation of the cactus obstacle.
+	 */
 	public static String getCactus() {
 		return Cactus;
 	}
+	
+	/**
+	 * SETTER FOR CACTUS
+	 * @param New string representation of the cactus obstacle.
+	 */
 	public static void setCactus(String cactus) {
 		Cactus = cactus;
 	}
