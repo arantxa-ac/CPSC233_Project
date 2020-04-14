@@ -3,6 +3,11 @@ import java.util.TimerTask;
 
 import javafx.scene.layout.Pane;
 
+/**
+ * 
+ * A class which contains the jump feature for the player class which updates hitboxes and the image coordinates
+ *
+ */
 public class Player extends GameObject 
 {
 	/*
