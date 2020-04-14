@@ -1,4 +1,8 @@
 import java.util.ArrayList;
+/**
+ * 
+ * A class which contains the arraylists for the textgame that convert obstacle positions to arraylist values
+ */
 
 public class TextGame {
 	
