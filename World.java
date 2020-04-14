@@ -1,5 +1,9 @@
 import java.util.ArrayList;
-
+/**
+ * 
+ * A class which has the arraylist which contains the player, the groundgui, and also all obstacles.
+ * The class also has the capacity to add obstacles of the obstacleGUI class to the arraylist.
+ */
 public class World {
 
 	/*
