@@ -2,7 +2,11 @@ import java.awt.Font;
 import java.awt.Label;
 import java.util.Timer;
 import java.util.TimerTask;
-
+/**
+ * 
+ * A class which uses the timertask to increase tenthsecondspassed and obstacle positioning
+ *
+ */
 public class ScoreManager {
 	
 	/*
