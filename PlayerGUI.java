@@ -5,6 +5,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
+/**
+ * 
+ * A class which contains player animation, and player colision detection
+ *
+ */
 public class PlayerGUI extends Player
 {
 	/**
