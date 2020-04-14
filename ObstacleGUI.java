@@ -14,7 +14,7 @@ public class ObstacleGUI extends Obstacle{
 	 */
 	Image Obstacle_image;
 	ImageView imageView;
-	int HITBOXSIZE = 40;
+	int HITBOXSIZE = 90;
 	/**
 	 * Always spawn obstacles at the far right of the screen
 	 */
@@ -82,7 +82,10 @@ public class ObstacleGUI extends Obstacle{
 			if(gen == 0)
 				Y = 200;
 			else 
+			{
 				Y = 140;
+				obstacleSprite = new Sprite(40,X,Y);
+			}
 			
 			SpriteAnimation anim = new SpriteAnimation(imageView,duration,COUNT,COLUMNS,OFFSET_X,OFFSET_Y,WIDTH,HEIGHT);
 			anim.setCycleCount(anim.INDEFINITE);
