@@ -12,19 +12,20 @@ import static org.junit.Assert.fail;
  */
 
  	public class ObstacleTest {
- 		private int rate = 5;
  		/**
  		 * Testing to see if the generate() method in the Obstacle class randomly generates obstacles
  		 */
 	@Test
 	public void test_generate() {
 		Obstacle obstacle = new Obstacle();
-		Random rand = new Random();
-		int generate = rand.nextInt(this.rate);
-		if(generate == 0) {
+		Obstacle actual = obstacle.generate();
+		if(actual != null) {
 			Obstacle expected = new Obstacle();
-			Obstacle actual = obstacle.generate();
-			assertEquals("Testing Obstacle Generation",  expected, actual);
+			assertEquals("Testing Obstacle Generation",  expected, actual);				
+			}
+		else {
+			Object expected = null;
+			assertEquals("Testing Obstacle Generation", expected, actual);
 		}
 		
 		
@@ -33,4 +34,5 @@ import static org.junit.Assert.fail;
 	}
 
 }
+
 
