@@ -7,6 +7,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
+/**
+ * 
+ * A class which contains random obstace generation for GUI obstacles, their timeline animations, and randomization of obstacles (Bird or cacti) 
+ *
+ */
 public class ObstacleGUI extends Obstacle{
 
 	/*
