@@ -1,5 +1,9 @@
 import javafx.scene.shape.Rectangle;
-
+/**
+ * 
+ * A class which contains the hitbox constructor, and also has setters and getters for hitboxes 
+ *
+ */
 public class Sprite  {
 	/*
 	 * Instance variables for Sprite class.
