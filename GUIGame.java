@@ -19,7 +19,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
-
+/**
+ * 
+ * A class which contains the major game loops, and adds all graphical features to the interface
+ * Manages upkeep of score, colision detection, adding of layers, and jump input
+ *
+ */
 public class GUIGame extends Application implements KeyListener {
 	
 	/*
