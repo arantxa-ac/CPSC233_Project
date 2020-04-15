@@ -32,7 +32,6 @@ public class PlayerGUITest {
 			if (g instanceof ObstacleGUI && g != null)
 			{
 				g.getSprite().setHitbox(0, 200);
-				world.getGame().get(0).getSprite().setHitbox(0, 200);
 				Bounds obstacleBounds = g.getSprite().getHitbox().localToScene(g.getSprite().getHitbox().getBoundsInParent());
 				Bounds playerBounds = world.getGame().get(0).getSprite().getHitbox().localToScene(world.getGame().get(0).getSprite().getHitbox().getBoundsInParent(), true);
 				if(obstacleBounds.intersects(playerBounds))
